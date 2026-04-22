@@ -29,4 +29,4 @@ Dasbor ini adalah *Single Page Application* statis. Anda dapat menjalankannya de
 - **Periode Data**: Desember 2010 – November 2011
 
 ## Author
-**Rizal WP** — Telkom University — Data Science
+**Kelompok 1** — Telkom University — Data Science
