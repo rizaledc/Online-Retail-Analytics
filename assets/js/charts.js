@@ -371,9 +371,6 @@ export function renderMonthlyTrend(data, metric = 'revenue') {
   const values     = data.monthly_trends[metric];
   const months     = data.monthly_trends.months;
 
-  const titleEl = document.getElementById('trendChartTitle');
-  if (titleEl) titleEl.textContent = `Monthly ${label} Trend`;
-
   // Compute dynamic points for annotations
   const maxVal   = Math.max(...values);
   const minVal   = Math.min(...values);
@@ -393,7 +390,10 @@ export function renderMonthlyTrend(data, metric = 'revenue') {
     annos.push(...annoPointLabel(minMonth, minVal, `Terendah ${fmtNum(minVal)}`, 'bottom'));
   }
 
-  createChart('chartMonthlyTrend', {
+  const canvasId = metric === 'revenue' ? 'chartTrendRevenue' : 
+                   metric === 'quantity' ? 'chartTrendQuantity' : 'chartTrendTransactions';
+
+  createChart(canvasId, {
     type: 'line',
     data: { labels: months, datasets: [{ label, data: values,
       borderColor: C_MAROON, backgroundColor: 'rgba(128,0,0,0.07)',

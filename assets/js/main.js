@@ -98,7 +98,9 @@ function injectSkeletons(pageId) {
       ['chartCustCount','chartCustRevenue'].forEach(_skeletonifyCanvas);
       break;
     case 'page-trends':
-      _skeletonifyCanvas('chartMonthlyTrend');
+      _skeletonifyCanvas('chartTrendRevenue');
+      _skeletonifyCanvas('chartTrendQuantity');
+      _skeletonifyCanvas('chartTrendTransactions');
       break;
     case 'page-products':
       _skeletonifyCanvas('chartTopProducts');
@@ -118,7 +120,9 @@ function injectSkeletons(pageId) {
       break;
     }
     case 'page-forecast':
-      _skeletonifyCanvas('chartForecast');
+      _skeletonifyCanvas('chartForecastRevenue');
+      _skeletonifyCanvas('chartForecastQuantity');
+      _skeletonifyCanvas('chartForecastTransactions');
       break;
     case 'page-insights': {
       const grid = document.getElementById('insightsGrid');
@@ -391,6 +395,8 @@ function renderPageCharts(pageId, data) {
       break;
     case 'page-trends':
       renderMonthlyTrend(data, 'revenue');
+      renderMonthlyTrend(data, 'quantity');
+      renderMonthlyTrend(data, 'transactions');
       break;
     case 'page-products':
       renderTopProducts(data);
@@ -415,6 +421,10 @@ function renderPageCharts(pageId, data) {
     case 'page-forecast':
       renderForecast(data, 'revenue');
       renderForecastTable(data, 'revenue');
+      renderForecast(data, 'quantity');
+      renderForecastTable(data, 'quantity');
+      renderForecast(data, 'transactions');
+      renderForecastTable(data, 'transactions');
       break;
     case 'page-insights':
       renderInsights();
@@ -687,7 +697,9 @@ function renderForecastTable(data, metric) {
 
   const fmt = v => isCurrency ? '£' + v.toLocaleString('en-GB', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : v.toLocaleString('en-GB');
 
-  renderSortableTable('tableForecast', [
+  const tableId = `tableForecast${metric.charAt(0).toUpperCase() + metric.slice(1)}`;
+
+  renderSortableTable(tableId, [
     { id: 'month', label: 'Month', align: 'left' },
     { id: 'forecast', label: 'Forecast Value', align: 'right', render: fmt },
     { id: 'lower', label: 'Lower Bound', align: 'right', render: fmt },
@@ -700,28 +712,9 @@ function renderForecastTable(data, metric) {
 /* ================================================================
    FILTER BUTTONS
 ================================================================ */
-function initTrendFilter(data) {
-  const btns = document.querySelectorAll('#page-trends .filter-btn');
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderMonthlyTrend(data, btn.dataset.metric);
-    });
-  });
-}
+// Trend filter removed as all 3 charts are now displayed directly
 
-function initForecastFilter(data) {
-  const btns = document.querySelectorAll('#page-forecast .filter-btn');
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderForecast(data, btn.dataset.fc);
-      renderForecastTable(data, btn.dataset.fc);
-    });
-  });
-}
+// Forecast filter removed as all 3 charts are now displayed directly
 
 /* ================================================================
    SIDEBAR TOGGLE (mobile)
@@ -790,8 +783,6 @@ async function init() {
   hideError();
 
   initNav(data);
-  initTrendFilter(data);
-  initForecastFilter(data);
 
   // Boot to Executive Summary
   switchPage('page-exec-summary', data);

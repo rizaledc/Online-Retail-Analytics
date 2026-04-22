@@ -32,17 +32,11 @@ export function renderForecast(data, metric = 'revenue') {
   const fc          = data.forecast[metric];
   const isCurrency  = metric === 'revenue';
 
-  /* ── Title ── */
-  const titleMap = {
-    revenue:      'Revenue Forecast (Dec 2011 – May 2012)',
-    quantity:     'Quantity Forecast (Dec 2011 – May 2012)',
-    transactions: 'Transactions Forecast (Dec 2011 – May 2012)',
-  };
-  const titleEl = document.getElementById('forecastChartTitle');
-  if (titleEl) titleEl.textContent = titleMap[metric];
+  const canvasId = `chartForecast${metric.charAt(0).toUpperCase() + metric.slice(1)}`;
+  const badgesId = `forecastBadges${metric.charAt(0).toUpperCase() + metric.slice(1)}`;
 
   /* ── Accuracy badges ── */
-  const badgesEl = document.getElementById('forecastBadges');
+  const badgesEl = document.getElementById(badgesId);
   if (badgesEl) {
     badgesEl.innerHTML = `
       <div class="metric-badge">
@@ -86,7 +80,7 @@ export function renderForecast(data, metric = 'revenue') {
   ];
 
   /* ── Chart ── */
-  createChart('chartForecast', {
+  createChart(canvasId, {
     type: 'line',
     data: {
       labels: allLabels,

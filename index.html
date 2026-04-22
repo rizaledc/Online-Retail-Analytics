@@ -360,16 +360,24 @@
             <p>Time series performance across revenue, quantity, and transaction metrics.</p>
           </div>
 
-          <div class="filter-bar">
-            <button class="filter-btn active" data-metric="revenue">Revenue</button>
-            <button class="filter-btn" data-metric="quantity">Quantity</button>
-            <button class="filter-btn" data-metric="transactions">Transactions</button>
+          <div class="chart-card">
+            <h3 class="chart-title">Monthly Revenue Trend</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartTrendRevenue" aria-label="Line chart of monthly revenue trend"></canvas>
+            </div>
           </div>
 
           <div class="chart-card">
-            <h3 class="chart-title" id="trendChartTitle">Monthly Trend</h3>
+            <h3 class="chart-title">Monthly Quantity Trend</h3>
             <div class="chart-wrap chart-wrap--wide">
-              <canvas id="chartMonthlyTrend" aria-label="Line chart of monthly trend"></canvas>
+              <canvas id="chartTrendQuantity" aria-label="Line chart of monthly quantity trend"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title">Monthly Transactions Trend</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartTrendTransactions" aria-label="Line chart of monthly transactions trend"></canvas>
             </div>
           </div>
         </div>
@@ -501,25 +509,38 @@
             <p>6-Month forward projection using Facebook Prophet with 80% confidence intervals.</p>
           </div>
 
-          <div class="filter-bar">
-            <button class="filter-btn active" data-fc="revenue">Revenue</button>
-            <button class="filter-btn" data-fc="quantity">Quantity</button>
-            <button class="filter-btn" data-fc="transactions">Transactions</button>
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-title">Revenue Forecast</h3>
+              <div class="metric-badges" id="forecastBadgesRevenue"></div>
+            </div>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartForecastRevenue" aria-label="Revenue Forecast"></canvas>
+            </div>
+            <div id="tableForecastRevenue" class="table-wrap"></div>
           </div>
 
           <div class="chart-card">
             <div class="chart-card__header">
-              <h3 class="chart-title" id="forecastChartTitle">Forecast</h3>
-              <div class="metric-badges" id="forecastBadges">
-                <!-- Populated by JS -->
-              </div>
+              <h3 class="chart-title">Quantity Forecast</h3>
+              <div class="metric-badges" id="forecastBadgesQuantity"></div>
             </div>
             <div class="chart-wrap chart-wrap--wide">
-              <canvas id="chartForecast" aria-label="Forecast line chart with confidence interval band"></canvas>
+              <canvas id="chartForecastQuantity" aria-label="Quantity Forecast"></canvas>
             </div>
+            <div id="tableForecastQuantity" class="table-wrap"></div>
           </div>
-          <!-- TABLE CONTAINER -->
-          <div id="tableForecast" class="table-wrap"></div>
+
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-title">Transactions Forecast</h3>
+              <div class="metric-badges" id="forecastBadgesTransactions"></div>
+            </div>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartForecastTransactions" aria-label="Transactions Forecast"></canvas>
+            </div>
+            <div id="tableForecastTransactions" class="table-wrap"></div>
+          </div>
         </div>
 
         <!-- 11. INSIGHTS PAGE -->
