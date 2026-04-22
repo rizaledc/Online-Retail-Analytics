@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Online Retail Analytics Dashboard — EDA, RFM Segmentation, Clustering, Anomaly Detection, and Prophet Forecasting on UK e-commerce data (Dec 2010 – Nov 2011).">
+  <title>Online Retail Analytics Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23800000' /%3E%3Cpath d='M8 24V16 M16 24V10 M24 24V6' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' /%3E%3C/svg%3E">
+  <meta name="theme-color" content="#800000">
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ====================================================
+       GLOBAL LOADING OVERLAY
+  ==================================================== -->
+  <div class="loading-overlay" id="loadingOverlay" aria-live="polite" aria-label="Memuat dashboard">
+    <div class="loading-overlay__inner">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="loading-overlay__text">Memuat data dashboard...</p>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       ERROR STATE
+  ==================================================== -->
+  <div class="error-state" id="errorState" aria-live="assertive" hidden>
+    <div class="error-state__card">
+      <div class="error-state__icon" aria-hidden="true">
+        <i data-lucide="alert-circle"></i>
+      </div>
+      <h2 class="error-state__title">Gagal memuat data</h2>
+      <p class="error-state__sub">Pastikan file <code>dashboard_data.json</code> tersedia di direktori yang sama.</p>
+      <button class="error-state__retry" id="retryBtn">
+        <i data-lucide="refresh-cw"></i> Coba Lagi
+      </button>
+    </div>
+  </div>
+
+  <div class="dashboard-layout">
+    
+    <!-- ====================================================
+         SIDEBAR NAVIGATION
+    ==================================================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__header">
+        <div class="sidebar__logo">
+          <i data-lucide="bar-chart-2"></i>
+          <span>Online Retail Analytics</span>
+        </div>
+        <button class="sidebar__close-btn" id="sidebarCloseBtn" aria-label="Close sidebar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar__nav">
+        <ul role="list">
+          <li>
+            <a href="#" class="nav-item active" data-target="page-exec-summary">
+              <i data-lucide="file-text"></i> <span>Executive Summary</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-overview">
+              <i data-lucide="layout-dashboard"></i> <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-unit-price">
+              <i data-lucide="tag"></i> <span>Unit Price Analysis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-country">
+              <i data-lucide="globe"></i> <span>Country Analysis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-customer">
+              <i data-lucide="users"></i> <span>Customer Behavior</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-trends">
+              <i data-lucide="trending-up"></i> <span>Monthly Trends</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-products">
+              <i data-lucide="package"></i> <span>Top Products</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-rfm">
+              <i data-lucide="target"></i> <span>RFM Segmentation</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-clusters">
+              <i data-lucide="pie-chart"></i> <span>Customer Clustering</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-anomaly">
+              <i data-lucide="alert-triangle"></i> <span>Anomaly Detection</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-forecast">
+              <i data-lucide="cpu"></i> <span>Forecasting</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-insights">
+              <i data-lucide="lightbulb"></i> <span>Insights &amp; Recommendations</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar__footer">
+        <p>Project by <strong>Rizal WP</strong></p>
+      </div>
+    </aside>
+
+    <!-- ====================================================
+         MAIN CONTENT AREA
+    ==================================================== -->
+    <main class="main-content" id="mainContent">
+      <header class="topbar">
+        <button class="topbar__toggle" id="sidebarToggleBtn" aria-label="Toggle sidebar">
+          <i data-lucide="menu"></i>
+        </button>
+        <h1 class="topbar__title" id="topbarTitle">Overview</h1>
+      </header>
+
+      <div class="content-wrapper">
+
+        <!-- 0. EXECUTIVE SUMMARY PAGE -->
+        <div class="page-panel active" id="page-exec-summary">
+          <div class="page-header page-header--exec">
+            <div class="page-header__left">
+              <h2>Executive Summary</h2>
+              <p>Online Retail Analytics — Dec 2010 to Nov 2011</p>
+            </div>
+            <div class="page-header__right">
+              <span id="execDate" class="exec-date"></span>
+              <button class="print-btn" onclick="window.print()">
+                <i data-lucide="printer"></i> Cetak Laporan
+              </button>
+            </div>
+          </div>
+
+          <div class="exec-kpi-grid" id="execKpiGrid">
+            <!-- Populated via JS -->
+          </div>
+
+          <div class="exec-findings-grid">
+            <div class="finding-card">
+              <h3 class="finding-card__title">Dominasi Pasar UK</h3>
+              <p class="finding-card__desc">84.6% revenue dari UK, namun Netherlands dan Australia punya AOV tertinggi (£121 dan £117).</p>
+              <div class="finding-card__rec"><strong>Rekomendasi:</strong> Fokus pada retensi pasar UK sekaligus membuat program cross-selling khusus untuk pasar EU dan Australia guna meningkatkan volume pesanan.</div>
+            </div>
+            <div class="finding-card">
+              <h3 class="finding-card__title">Pelanggan Loyal Menopang Bisnis</h3>
+              <p class="finding-card__desc">337 loyal customers (>10 order) menyumbang £4.39M (47% total revenue).</p>
+              <div class="finding-card__rec"><strong>Rekomendasi:</strong> Implementasikan program VIP eksklusif (loyalty program) untuk menjaga tingkat kepuasan dan mencegah churn pada segmen ini.</div>
+            </div>
+            <div class="finding-card">
+              <h3 class="finding-card__title">Segmen Champions Paling Berharga</h3>
+              <p class="finding-card__desc">962 Champions dengan avg monetary £6,039 dan recency hanya 13 hari.</p>
+              <div class="finding-card__rec"><strong>Rekomendasi:</strong> Berikan prioritas layanan pelanggan tertinggi dan gunakan profil mereka sebagai lookalike audience untuk akuisisi pelanggan baru.</div>
+            </div>
+            <div class="finding-card">
+              <h3 class="finding-card__title">Tingkat Pembatalan Kritis</h3>
+              <p class="finding-card__desc">19.22% cancellation rate dengan kerugian £896,812 didominasi UK.</p>
+              <div class="finding-card__rec"><strong>Rekomendasi:</strong> Lakukan audit proses fulfillment dan buat SOP penanganan retur yang lebih ketat, khususnya pada bulan sibuk menjelang akhir tahun.</div>
+            </div>
+            <div class="finding-card">
+              <h3 class="finding-card__title">Lonjakan Q4 yang Konsisten</h3>
+              <p class="finding-card__desc">Revenue naik dari £760K (Jun) ke £1.51M (Nov), pola seasonal yang dapat diantisipasi.</p>
+              <div class="finding-card__rec"><strong>Rekomendasi:</strong> Siapkan buffer stok setidaknya 3 bulan sebelum Q4 dan tingkatkan kapasitas operasional gudang pada periode Oktober-November.</div>
+            </div>
+            <div class="finding-card">
+              <h3 class="finding-card__title">Proyeksi Pertumbuhan Positif</h3>
+              <p class="finding-card__desc">Forecast quantity tumbuh dari 666K ke 827K unit (MAPE 11.5%), transaksi stabil di 2.2K-2.8K per bulan.</p>
+              <div class="finding-card__rec"><strong>Rekomendasi:</strong> Selaraskan perencanaan pengadaan inventory dengan proyeksi pertumbuhan 6 bulan ke depan agar tidak terjadi stockout.</div>
+            </div>
+          </div>
+
+          <div class="exec-tables-grid">
+            <div class="chart-card">
+              <h3 class="chart-title">Model Performance (Prophet)</h3>
+              <div id="tableExecModel" class="table-wrap" style="margin-top:0;"></div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Cluster Summary</h3>
+              <div id="tableExecCluster" class="table-wrap" style="margin-top:0;"></div>
+            </div>
+          </div>
+
+          <footer class="exec-footer">
+            <p>Laporan ini dibuat sebagai bagian dari tugas Sains Data pada Industri</p>
+            <p>Data: Online Retail Dataset | Model: Prophet (Meta) | Segmentasi: Agglomerative Clustering</p>
+            <p><strong>Rizal WP — Telkom University</strong></p>
+          </footer>
+        </div>
+
+        <!-- 1. OVERVIEW PAGE -->
+        <div class="page-panel" id="page-overview">
+          <div class="page-header">
+            <h2>Dashboard Overview</h2>
+            <p>Key performance indicators and high-level metrics for Dec 2010 – Nov 2011.</p>
+          </div>
+
+          <div class="kpi-grid" id="kpiGrid">
+            <!-- Skeleton loaders, populated by JS -->
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+            <div class="kpi-card skeleton"></div>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title">Monthly Revenue Trend</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartOverviewRevenue" aria-label="Line chart of monthly revenue trend"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. UNIT PRICE ANALYSIS PAGE -->
+        <div class="page-panel" id="page-unit-price">
+          <div class="page-header">
+            <h2>Unit Price Analysis</h2>
+            <p>Distribution of transaction unit prices across predefined price segments.</p>
+          </div>
+
+          <div class="stats-row" id="priceStats">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Price Segment Distribution</h3>
+              <div class="chart-wrap">
+                <canvas id="chartPriceBar" aria-label="Bar chart showing count by price segment"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Price Segment Share</h3>
+              <div class="chart-wrap">
+                <canvas id="chartPriceDonut" aria-label="Donut chart showing price segment share"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. COUNTRY ANALYSIS PAGE -->
+        <div class="page-panel" id="page-country">
+          <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <h2>Country Analysis</h2>
+              <p>Geographic breakdown of revenue, transactions, and average order value.</p>
+            </div>
+            <div class="filter-bar" style="margin-bottom: 0;">
+              <button class="filter-btn active" data-metric="revenue">Revenue</button>
+              <button class="filter-btn" data-metric="transactions">Transactions</button>
+              <button class="filter-btn" data-metric="avg_order_value">Avg Order Value</button>
+            </div>
+          </div>
+
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Top 15 Countries by Revenue</h3>
+              <div class="chart-wrap chart-wrap--tall">
+                <canvas id="chartCountryRevenue" aria-label="Horizontal bar chart of top 15 countries by revenue"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Top 10 Countries by Transactions</h3>
+              <div class="chart-wrap chart-wrap--tall">
+                <canvas id="chartCountryTx" aria-label="Bar chart of top 10 countries by transactions"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">UK vs Non-UK Revenue Share</h3>
+              <div class="chart-wrap">
+                <canvas id="chartUkPie" aria-label="Pie chart showing UK vs Non-UK revenue split"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Avg Order Value — Top 10 Countries</h3>
+              <div class="chart-wrap">
+                <canvas id="chartCountryAov" aria-label="Bar chart of average order value per country"></canvas>
+              </div>
+            </div>
+          </div>
+          <!-- TABLE CONTAINER -->
+          <div id="tableCountry" class="table-wrap"></div>
+        </div>
+
+        <!-- 4. CUSTOMER BEHAVIOR PAGE -->
+        <div class="page-panel" id="page-customer">
+          <div class="page-header">
+            <h2>Customer Behavior</h2>
+            <p>Customer classification based on purchasing frequency.</p>
+          </div>
+
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Customer Count by Type</h3>
+              <div class="chart-wrap">
+                <canvas id="chartCustCount" aria-label="Bar chart showing count by customer type"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Revenue by Customer Type</h3>
+              <div class="chart-wrap">
+                <canvas id="chartCustRevenue" aria-label="Bar chart showing revenue by customer type"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. MONTHLY TRENDS PAGE -->
+        <div class="page-panel" id="page-trends">
+          <div class="page-header">
+            <h2>Monthly Trends</h2>
+            <p>Time series performance across revenue, quantity, and transaction metrics.</p>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-btn active" data-metric="revenue">Revenue</button>
+            <button class="filter-btn" data-metric="quantity">Quantity</button>
+            <button class="filter-btn" data-metric="transactions">Transactions</button>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title" id="trendChartTitle">Monthly Trend</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartMonthlyTrend" aria-label="Line chart of monthly trend"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. TOP PRODUCTS PAGE -->
+        <div class="page-panel" id="page-products">
+          <div class="page-header">
+            <h2>Top Products</h2>
+            <p>The ten best-selling products by total quantity sold.</p>
+          </div>
+
+          <div class="chart-card">
+            <h3 class="chart-title">Top 10 Products by Quantity Sold</h3>
+            <div class="chart-wrap chart-wrap--tall">
+              <canvas id="chartTopProducts" aria-label="Horizontal bar chart of top 10 products by quantity sold"></canvas>
+            </div>
+          </div>
+          <!-- TABLE CONTAINER -->
+          <div id="tableTopProducts" class="table-wrap"></div>
+        </div>
+
+        <!-- 7. RFM SEGMENTATION PAGE -->
+        <div class="page-panel" id="page-rfm">
+          <div class="page-header">
+            <h2>RFM Segmentation</h2>
+            <p>Customers segmented based on Recency, Frequency, and Monetary value.</p>
+          </div>
+
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Customers per Segment</h3>
+              <div class="chart-wrap">
+                <canvas id="chartRfmCount" aria-label="Bar chart of customer count per RFM segment"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Avg Monetary Value per Segment</h3>
+              <div class="chart-wrap">
+                <canvas id="chartRfmMonetary" aria-label="Bar chart of average monetary value per RFM segment"></canvas>
+              </div>
+            </div>
+            <div class="chart-card chart-card--span2">
+              <h3 class="chart-title">Avg RFM Profile per Segment</h3>
+              <div class="chart-wrap chart-wrap--wide">
+                <canvas id="chartRfmRadar" aria-label="Radar chart of average RFM profile per segment"></canvas>
+              </div>
+            </div>
+          </div>
+          <!-- TABLE CONTAINER -->
+          <div id="tableRfm" class="table-wrap"></div>
+        </div>
+
+        <!-- 8. CUSTOMER CLUSTERING PAGE -->
+        <div class="page-panel" id="page-clusters">
+          <div class="page-header">
+            <h2>Customer Clustering</h2>
+            <p>Agglomerative clustering defining distinct customer personas.</p>
+          </div>
+
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Cluster Size Distribution</h3>
+              <div class="chart-wrap">
+                <canvas id="chartClusterCount" aria-label="Bar chart of customer count per cluster"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Cluster RFM Profile (Grouped)</h3>
+              <div class="chart-wrap">
+                <canvas id="chartClusterRfm" aria-label="Grouped bar chart of RFM profile per cluster"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cluster-desc-grid" id="clusterDescGrid">
+            <!-- Populated by JS -->
+            <div class="cluster-card">
+              <h4 class="cluster-card__title">High-Value</h4>
+              <p class="cluster-card__desc">Highest revenue generators with frequent purchases and recent activity.</p>
+            </div>
+            <div class="cluster-card">
+              <h4 class="cluster-card__title">Loyal Active</h4>
+              <p class="cluster-card__desc">Core customer base with regular purchases and moderate spend.</p>
+            </div>
+            <div class="cluster-card">
+              <h4 class="cluster-card__title">Occasional</h4>
+              <p class="cluster-card__desc">Largest group, infrequent purchases with lower overall spend.</p>
+            </div>
+            <div class="cluster-card">
+              <h4 class="cluster-card__title">Dormant</h4>
+              <p class="cluster-card__desc">High recency (inactive), low frequency and minimal monetary value.</p>
+            </div>
+          </div>
+          <!-- TABLE CONTAINER -->
+          <div id="tableClusters" class="table-wrap"></div>
+        </div>
+
+        <!-- 9. ANOMALY DETECTION PAGE -->
+        <div class="page-panel" id="page-anomaly">
+          <div class="page-header">
+            <h2>Anomaly Detection</h2>
+            <p>Analysis of cancelled orders and estimated revenue loss.</p>
+          </div>
+
+          <div class="stats-row" id="anomalyStats">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Monthly Cancellation Volume</h3>
+              <div class="chart-wrap">
+                <canvas id="chartCancelTrend" aria-label="Bar chart of cancellations per month"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Top Countries by Cancellations</h3>
+              <div class="chart-wrap">
+                <canvas id="chartCancelCountry" aria-label="Horizontal bar chart of top countries by cancellation count"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. FORECASTING PAGE -->
+        <div class="page-panel" id="page-forecast">
+          <div class="page-header">
+            <h2>Prophet Forecasting</h2>
+            <p>6-Month forward projection using Facebook Prophet with 80% confidence intervals.</p>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-btn active" data-fc="revenue">Revenue</button>
+            <button class="filter-btn" data-fc="quantity">Quantity</button>
+            <button class="filter-btn" data-fc="transactions">Transactions</button>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card__header">
+              <h3 class="chart-title" id="forecastChartTitle">Forecast</h3>
+              <div class="metric-badges" id="forecastBadges">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartForecast" aria-label="Forecast line chart with confidence interval band"></canvas>
+            </div>
+          </div>
+          <!-- TABLE CONTAINER -->
+          <div id="tableForecast" class="table-wrap"></div>
+        </div>
+
+        <!-- 11. INSIGHTS PAGE -->
+        <div class="page-panel" id="page-insights">
+          <div class="page-header">
+            <h2>Insights &amp; Recommendations</h2>
+            <p>Strategic takeaways translated into actionable business recommendations.</p>
+          </div>
+
+          <div class="insights-grid" id="insightsGrid">
+            <!-- Populated by JS (Will ensure minimum 10 cards via main.js) -->
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js" type="module"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
