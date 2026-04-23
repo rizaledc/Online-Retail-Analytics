@@ -36,7 +36,8 @@ export function annoVLine(xVal, text) {
   return {
     type: 'line', scaleID: 'x', value: xVal,
     borderColor: '#800000', borderWidth: 1.5, borderDash: [6, 4],
-    label: { display: true, content: text, backgroundColor: '#800000', color: '#ffffff', font: { size: 11 }, position: 'start', yAdjust: 10 }
+    label: { display: true, content: text, backgroundColor: '#800000', color: '#ffffff', font: { size: 11 }, position: 'start', yAdjust: 10 },
+    drawTime: 'afterDraw'
   };
 }
 export function annoHLine(yVal, text) {
@@ -48,8 +49,8 @@ export function annoHLine(yVal, text) {
 }
 export function annoPointLabel(xVal, yVal, text, pos = 'top') {
   return [
-    { type: 'point', xValue: xVal, yValue: yVal, backgroundColor: '#800000', borderColor: '#ffffff', borderWidth: 1.5, radius: 5 },
-    { type: 'label', xValue: xVal, yValue: yVal, content: text, backgroundColor: '#1a1a1a', color: '#ffffff', font: { size: 11 }, borderRadius: 4, padding: 6, yAdjust: pos === 'top' ? -28 : 28 }
+    { type: 'point', xValue: xVal, yValue: yVal, backgroundColor: '#800000', borderColor: '#ffffff', borderWidth: 1.5, radius: 5, drawTime: 'afterDraw' },
+    { type: 'label', xValue: xVal, yValue: yVal, content: text, backgroundColor: '#1a1a1a', color: '#ffffff', font: { size: 11 }, borderRadius: 4, padding: 6, yAdjust: pos === 'top' ? -28 : -28, drawTime: 'afterDraw' }
   ];
 }
 export function annoBox(xIdx, text) {
@@ -372,22 +373,24 @@ export function renderMonthlyTrend(data, metric = 'revenue') {
   const months     = data.monthly_trends.months;
 
   // Compute dynamic points for annotations
-  const maxVal   = Math.max(...values);
-  const minVal   = Math.min(...values);
-  const maxMonth = months[values.indexOf(maxVal)];
-  const minMonth = months[values.indexOf(minVal)];
+  const maxVal = Math.max(...values);
+  const minVal = Math.min(...values);
+  const maxIdx = values.indexOf(maxVal);
+  const minIdx = values.indexOf(minVal);
   
   const annos = [];
   if (metric === 'revenue') {
-    if (months.includes('2011-09')) annos.push(annoVLine('2011-09', 'Tren naik dimulai'));
-    annos.push(...annoPointLabel(maxMonth, maxVal, `Puncak Revenue ${fmtCurrency(maxVal)}`, 'top'));
-    annos.push(...annoPointLabel(minMonth, minVal, `Terendah ${fmtCurrency(minVal)}`, 'bottom'));
+    const sepIdx = months.indexOf('2011-09');
+    if (sepIdx !== -1) annos.push(annoVLine(sepIdx, 'Tren naik dimulai'));
+    annos.push(...annoPointLabel(maxIdx, maxVal, `Puncak Revenue ${fmtCurrency(maxVal)}`, 'top'));
+    annos.push(...annoPointLabel(minIdx, minVal, `Terendah ${fmtCurrency(minVal)}`, 'bottom'));
   } else if (metric === 'quantity') {
-    if (months.includes('2011-09')) annos.push(annoVLine('2011-09', 'Akselerasi pertumbuhan'));
-    annos.push(...annoPointLabel(maxMonth, maxVal, `Puncak Quantity ${fmtNum(maxVal)} unit`, 'top'));
+    const sepIdx = months.indexOf('2011-09');
+    if (sepIdx !== -1) annos.push(annoVLine(sepIdx, 'Akselerasi pertumbuhan'));
+    annos.push(...annoPointLabel(maxIdx, maxVal, `Puncak Quantity ${fmtNum(maxVal)} unit`, 'top'));
   } else if (metric === 'transactions') {
-    annos.push(...annoPointLabel(maxMonth, maxVal, `Transaksi tertinggi ${fmtNum(maxVal)}`, 'top'));
-    annos.push(...annoPointLabel(minMonth, minVal, `Terendah ${fmtNum(minVal)}`, 'bottom'));
+    annos.push(...annoPointLabel(maxIdx, maxVal, `Transaksi tertinggi ${fmtNum(maxVal)}`, 'top'));
+    annos.push(...annoPointLabel(minIdx, minVal, `Terendah ${fmtNum(minVal)}`, 'bottom'));
   }
 
   const canvasId = metric === 'revenue' ? 'chartTrendRevenue' : 
@@ -401,9 +404,10 @@ export function renderMonthlyTrend(data, metric = 'revenue') {
       fill: true, tension: 0.35, borderWidth: 2.5 }] },
     options: {
       responsive: true, maintainAspectRatio: false,
+      layout: { padding: { top: 35, bottom: 35, left: 20, right: 50 } },
       plugins: {
         legend: { display: false },
-        annotation: { annotations: annos },
+        annotation: { clip: false, annotations: annos },
         tooltip: { ...tip(), mode: 'index', intersect: false,
           callbacks: {
             title: ctx => `Bulan: ${ctx[0].label}`,

@@ -248,7 +248,7 @@ button { font-family: inherit; cursor: pointer; }
   border-bottom: 1px solid var(--clr-border);
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
   padding: 0 28px;
   flex-shrink: 0;
   box-shadow: var(--shadow-sm);
@@ -268,6 +268,39 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 1rem;
   font-weight: 700;
   color: var(--clr-text);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.insights-top-btn {
+  background: var(--clr-primary);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+.insights-top-btn:hover {
+  opacity: 0.9;
+  color: #fff;
+}
+.insights-top-btn.active {
+  background: var(--clr-primary-dark, #5a0000);
+}
+.insights-top-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* CONTENT WRAPPER — scrollable */
@@ -651,6 +684,9 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── RESPONSIVE — MOBILE (≤ 768px) ─────────────────────── */
 @media (max-width: 768px) {
+  .insights-top-text { display: none !important; }
+  .insights-top-btn { padding: 8px 10px !important; }
+  
   .sidebar {
     position: fixed;
     top: 0;
@@ -1181,4 +1217,140 @@ button { font-family: inherit; cursor: pointer; }
   th, td {
     border: 1px solid #ddd;
   }
+}
+
+/* ================================================================
+   ADVANCED ANALYTICS — NEW COMPONENTS
+================================================================ */
+
+/* ── Sidebar Nav Group Label ──────────────────────── */
+.nav-group-label {
+  list-style: none;
+  padding: 16px 12px 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--clr-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-group-label::before {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--clr-border);
+}
+.nav-group-label span { white-space: nowrap; }
+
+/* ── Cohort / Product Heatmap Tables ──────────────── */
+.heatmap-scroll {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+}
+.cohort-table {
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 100%;
+}
+.cohort-table th {
+  background: var(--clr-primary);
+  color: #fff;
+  padding: 7px 10px;
+  white-space: nowrap;
+  text-align: center;
+  font-weight: 600;
+}
+.cohort-table td {
+  padding: 7px 10px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.3);
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+.cohort-table td:hover { opacity: 0.85; }
+.cohort-label {
+  background: var(--clr-bg-main) !important;
+  color: var(--clr-body) !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  min-width: 80px;
+}
+
+/* ── Sales Funnel (Smooth Trumpet SVG) ─────────────── */
+.trumpet-funnel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+.trumpet-funnel-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+  display: block;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+.trumpet-funnel-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.trumpet-label-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+.trumpet-label-stage {
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.trumpet-label-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-top: 2px;
+}
+.trumpet-label-conv {
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(0,0,0,0.25);
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-top: 6px;
+}
+
+/* ── CLV Metrics Card ─────────────────────────────── */
+.clv-metrics-card {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--clr-bg);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Responsive Adjustments for Advanced Pages ────── */
+@media (max-width: 768px) {
+  .nav-group-label::before { display: none; }
+  .cohort-table { font-size: 11px; }
+  .cohort-table th, .cohort-table td { padding: 5px 7px; }
+  .trumpet-label-stage { font-size: 0.8rem; }
+  .trumpet-label-value { font-size: 1.1rem; }
 }

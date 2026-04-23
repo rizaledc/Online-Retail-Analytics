@@ -1,0 +1,3277 @@
+{
+  "market_basket": {
+    "total_rules": 24,
+    "avg_lift": 9.81,
+    "max_lift": 15.66,
+    "avg_confidence": 0.57,
+    "top_rules": [
+      {
+        "antecedents": "PINK REGENCY TEACUP AND SAUCER",
+        "consequents": "GREEN REGENCY TEACUP AND SAUCER",
+        "support": 0.0324,
+        "confidence": 0.8205,
+        "lift": 15.6602
+      },
+      {
+        "antecedents": "GREEN REGENCY TEACUP AND SAUCER",
+        "consequents": "PINK REGENCY TEACUP AND SAUCER",
+        "support": 0.0324,
+        "confidence": 0.618,
+        "lift": 15.6602
+      },
+      {
+        "antecedents": "ROSES REGENCY TEACUP AND SAUCER ",
+        "consequents": "PINK REGENCY TEACUP AND SAUCER",
+        "support": 0.0306,
+        "confidence": 0.5701,
+        "lift": 14.4454
+      },
+      {
+        "antecedents": "PINK REGENCY TEACUP AND SAUCER",
+        "consequents": "ROSES REGENCY TEACUP AND SAUCER ",
+        "support": 0.0306,
+        "confidence": 0.7764,
+        "lift": 14.4454
+      },
+      {
+        "antecedents": "GARDENERS KNEELING PAD CUP OF TEA ",
+        "consequents": "GARDENERS KNEELING PAD KEEP CALM ",
+        "support": 0.0304,
+        "confidence": 0.7213,
+        "lift": 14.2885
+      },
+      {
+        "antecedents": "GARDENERS KNEELING PAD KEEP CALM ",
+        "consequents": "GARDENERS KNEELING PAD CUP OF TEA ",
+        "support": 0.0304,
+        "confidence": 0.6024,
+        "lift": 14.2885
+      },
+      {
+        "antecedents": "GREEN REGENCY TEACUP AND SAUCER",
+        "consequents": "ROSES REGENCY TEACUP AND SAUCER ",
+        "support": 0.0394,
+        "confidence": 0.7511,
+        "lift": 13.975
+      },
+      {
+        "antecedents": "ROSES REGENCY TEACUP AND SAUCER ",
+        "consequents": "GREEN REGENCY TEACUP AND SAUCER",
+        "support": 0.0394,
+        "confidence": 0.7322,
+        "lift": 13.975
+      },
+      {
+        "antecedents": "ALARM CLOCK BAKELIKE GREEN",
+        "consequents": "ALARM CLOCK BAKELIKE RED ",
+        "support": 0.0317,
+        "confidence": 0.6427,
+        "lift": 12.2927
+      },
+      {
+        "antecedents": "ALARM CLOCK BAKELIKE RED ",
+        "consequents": "ALARM CLOCK BAKELIKE GREEN",
+        "support": 0.0317,
+        "confidence": 0.6054,
+        "lift": 12.2927
+      },
+      {
+        "antecedents": "PAPER CHAIN KIT 50'S CHRISTMAS ",
+        "consequents": "PAPER CHAIN KIT VINTAGE CHRISTMAS",
+        "support": 0.0302,
+        "confidence": 0.4782,
+        "lift": 10.6333
+      },
+      {
+        "antecedents": "PAPER CHAIN KIT VINTAGE CHRISTMAS",
+        "consequents": "PAPER CHAIN KIT 50'S CHRISTMAS ",
+        "support": 0.0302,
+        "confidence": 0.6725,
+        "lift": 10.6333
+      },
+      {
+        "antecedents": "LUNCH BAG PINK POLKADOT",
+        "consequents": "LUNCH BAG RED RETROSPOT",
+        "support": 0.0311,
+        "confidence": 0.5507,
+        "lift": 7.0372
+      },
+      {
+        "antecedents": "LUNCH BAG RED RETROSPOT",
+        "consequents": "LUNCH BAG PINK POLKADOT",
+        "support": 0.0311,
+        "confidence": 0.398,
+        "lift": 7.0372
+      },
+      {
+        "antecedents": "LUNCH BAG  BLACK SKULL.",
+        "consequents": "LUNCH BAG RED RETROSPOT",
+        "support": 0.0341,
+        "confidence": 0.4992,
+        "lift": 6.3789
+      },
+      {
+        "antecedents": "LUNCH BAG RED RETROSPOT",
+        "consequents": "LUNCH BAG  BLACK SKULL.",
+        "support": 0.0341,
+        "confidence": 0.4361,
+        "lift": 6.3789
+      },
+      {
+        "antecedents": "JUMBO BAG RED RETROSPOT",
+        "consequents": "JUMBO BAG PINK POLKADOT",
+        "support": 0.0441,
+        "confidence": 0.4057,
+        "lift": 6.2263
+      },
+      {
+        "antecedents": "JUMBO BAG PINK POLKADOT",
+        "consequents": "JUMBO BAG RED RETROSPOT",
+        "support": 0.0441,
+        "confidence": 0.6773,
+        "lift": 6.2263
+      },
+      {
+        "antecedents": "JUMBO BAG RED RETROSPOT",
+        "consequents": "JUMBO  BAG BAROQUE BLACK WHITE",
+        "support": 0.032,
+        "confidence": 0.2946,
+        "lift": 5.7581
+      },
+      {
+        "antecedents": "JUMBO  BAG BAROQUE BLACK WHITE",
+        "consequents": "JUMBO BAG RED RETROSPOT",
+        "support": 0.032,
+        "confidence": 0.6264,
+        "lift": 5.7581
+      }
+    ]
+  },
+  "cohort": {
+    "cohort_size": {
+      "2010-12": 885,
+      "2011-01": 417,
+      "2011-02": 380,
+      "2011-03": 452,
+      "2011-04": 300,
+      "2011-05": 284,
+      "2011-06": 242,
+      "2011-07": 188,
+      "2011-08": 169,
+      "2011-09": 299,
+      "2011-10": 358,
+      "2011-11": 323,
+      "2011-12": 41
+    },
+    "avg_retention": {
+      "month_0": 100.0,
+      "month_1": 21.9,
+      "month_2": 22.6,
+      "month_3": 22.7,
+      "month_4": 24.5,
+      "month_5": 25.1,
+      "month_6": 24.4,
+      "month_7": 24.2,
+      "month_8": 25.1,
+      "month_9": 27.8,
+      "month_10": 26.9,
+      "month_11": 31.0
+    },
+    "cohort_detail": [
+      {
+        "cohort": "2010-12",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 36.6,
+          "month_2": 32.3,
+          "month_3": 38.4,
+          "month_4": 36.3,
+          "month_5": 39.8,
+          "month_6": 36.3,
+          "month_7": 34.9,
+          "month_8": 35.4,
+          "month_9": 39.5,
+          "month_10": 37.4,
+          "month_11": 50.3
+        }
+      },
+      {
+        "cohort": "2011-01",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 37.9,
+          "month_2": null,
+          "month_3": 23.0,
+          "month_4": 32.1,
+          "month_5": 28.8,
+          "month_6": 24.7,
+          "month_7": 24.2,
+          "month_8": 30.0,
+          "month_9": 32.6,
+          "month_10": 36.5,
+          "month_11": 11.8
+        }
+      },
+      {
+        "cohort": "2011-02",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 18.7,
+          "month_2": 28.4,
+          "month_3": null,
+          "month_4": 27.1,
+          "month_5": 24.7,
+          "month_6": 25.3,
+          "month_7": 27.9,
+          "month_8": 24.7,
+          "month_9": 30.5,
+          "month_10": 6.8,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-03",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 15.0,
+          "month_2": 25.2,
+          "month_3": 19.9,
+          "month_4": 22.3,
+          "month_5": 16.8,
+          "month_6": 26.8,
+          "month_7": 23.0,
+          "month_8": 27.9,
+          "month_9": 8.6,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-04",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 21.3,
+          "month_2": 20.3,
+          "month_3": 21.0,
+          "month_4": 19.7,
+          "month_5": 22.7,
+          "month_6": 21.7,
+          "month_7": 26.0,
+          "month_8": 7.3,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-05",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 19.0,
+          "month_2": 17.3,
+          "month_3": 17.3,
+          "month_4": 20.8,
+          "month_5": 23.2,
+          "month_6": 26.4,
+          "month_7": 9.5,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-06",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 17.4,
+          "month_2": 15.7,
+          "month_3": 26.4,
+          "month_4": 23.1,
+          "month_5": 33.5,
+          "month_6": 9.5,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-07",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 18.1,
+          "month_2": 20.7,
+          "month_3": 22.3,
+          "month_4": 27.1,
+          "month_5": 11.2,
+          "month_6": null,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-08",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 20.7,
+          "month_2": 24.9,
+          "month_3": 24.3,
+          "month_4": 12.4,
+          "month_5": null,
+          "month_6": null,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-09",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 23.4,
+          "month_2": 30.1,
+          "month_3": 11.4,
+          "month_4": null,
+          "month_5": null,
+          "month_6": null,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-10",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 24.0,
+          "month_2": 11.5,
+          "month_3": null,
+          "month_4": null,
+          "month_5": null,
+          "month_6": null,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-11",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": 11.1,
+          "month_2": null,
+          "month_3": null,
+          "month_4": null,
+          "month_5": null,
+          "month_6": null,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      },
+      {
+        "cohort": "2011-12",
+        "retention": {
+          "month_0": 100.0,
+          "month_1": null,
+          "month_2": null,
+          "month_3": null,
+          "month_4": null,
+          "month_5": null,
+          "month_6": null,
+          "month_7": null,
+          "month_8": null,
+          "month_9": null,
+          "month_10": null,
+          "month_11": null
+        }
+      }
+    ]
+  },
+  "churn": {
+    "summary": {
+      "Low Risk": {
+        "count": 1648,
+        "avg_recency": 13.5,
+        "avg_frequency": 7.3,
+        "avg_monetary": 3800.06,
+        "total_revenue": 6262492.29
+      },
+      "Medium Risk": {
+        "count": 1241,
+        "avg_recency": 56.1,
+        "avg_frequency": 3.1,
+        "avg_monetary": 1300.28,
+        "total_revenue": 1613645.2
+      },
+      "High Risk": {
+        "count": 1449,
+        "avg_recency": 213.6,
+        "avg_frequency": 1.9,
+        "avg_monetary": 714.47,
+        "total_revenue": 1035270.41
+      }
+    },
+    "top_high_risk": [
+      {
+        "customer_id": 12346,
+        "recency": 326,
+        "frequency": 1,
+        "monetary": 77183.6,
+        "churn_score": 87.2
+      },
+      {
+        "customer_id": 15749,
+        "recency": 235,
+        "frequency": 3,
+        "monetary": 44534.3,
+        "churn_score": 62.8
+      },
+      {
+        "customer_id": 15098,
+        "recency": 182,
+        "frequency": 3,
+        "monetary": 39916.5,
+        "churn_score": 48.7
+      },
+      {
+        "customer_id": 16180,
+        "recency": 100,
+        "frequency": 8,
+        "monetary": 10254.18,
+        "churn_score": 26.7
+      },
+      {
+        "customer_id": 12590,
+        "recency": 211,
+        "frequency": 2,
+        "monetary": 9864.26,
+        "churn_score": 56.4
+      },
+      {
+        "customer_id": 13093,
+        "recency": 276,
+        "frequency": 8,
+        "monetary": 7832.47,
+        "churn_score": 73.8
+      },
+      {
+        "customer_id": 12980,
+        "recency": 158,
+        "frequency": 9,
+        "monetary": 7374.9,
+        "churn_score": 42.2
+      },
+      {
+        "customer_id": 13027,
+        "recency": 114,
+        "frequency": 6,
+        "monetary": 6912.0,
+        "churn_score": 30.5
+      },
+      {
+        "customer_id": 16553,
+        "recency": 163,
+        "frequency": 12,
+        "monetary": 5719.82,
+        "churn_score": 43.6
+      },
+      {
+        "customer_id": 17850,
+        "recency": 372,
+        "frequency": 34,
+        "monetary": 5391.21,
+        "churn_score": 99.5
+      },
+      {
+        "customer_id": 15032,
+        "recency": 256,
+        "frequency": 3,
+        "monetary": 4959.1,
+        "churn_score": 68.4
+      },
+      {
+        "customer_id": 12688,
+        "recency": 114,
+        "frequency": 1,
+        "monetary": 4873.81,
+        "churn_score": 30.5
+      },
+      {
+        "customer_id": 13802,
+        "recency": 139,
+        "frequency": 3,
+        "monetary": 4599.42,
+        "churn_score": 37.2
+      },
+      {
+        "customer_id": 14016,
+        "recency": 162,
+        "frequency": 4,
+        "monetary": 4341.21,
+        "churn_score": 43.3
+      },
+      {
+        "customer_id": 18087,
+        "recency": 98,
+        "frequency": 2,
+        "monetary": 4055.72,
+        "churn_score": 26.2
+      },
+      {
+        "customer_id": 12378,
+        "recency": 130,
+        "frequency": 1,
+        "monetary": 4008.62,
+        "churn_score": 34.8
+      },
+      {
+        "customer_id": 18073,
+        "recency": 114,
+        "frequency": 12,
+        "monetary": 3877.52,
+        "churn_score": 30.5
+      },
+      {
+        "customer_id": 12755,
+        "recency": 281,
+        "frequency": 2,
+        "monetary": 3811.95,
+        "churn_score": 75.1
+      },
+      {
+        "customer_id": 15808,
+        "recency": 306,
+        "frequency": 4,
+        "monetary": 3734.97,
+        "churn_score": 81.8
+      },
+      {
+        "customer_id": 12502,
+        "recency": 96,
+        "frequency": 5,
+        "monetary": 3723.87,
+        "churn_score": 25.7
+      }
+    ]
+  },
+  "pareto": {
+    "pct_customer_for_80pct_revenue": 26.1,
+    "n_customer_for_80pct_revenue": 1133,
+    "top20_revenue": 6647378.01,
+    "curve": [
+      {
+        "customer_pct": 0.02,
+        "revenue_pct": 3.14
+      },
+      {
+        "customer_pct": 0.25,
+        "revenue_pct": 18.01
+      },
+      {
+        "customer_pct": 0.48,
+        "revenue_pct": 24.36
+      },
+      {
+        "customer_pct": 0.71,
+        "revenue_pct": 28.43
+      },
+      {
+        "customer_pct": 0.95,
+        "revenue_pct": 31.32
+      },
+      {
+        "customer_pct": 1.18,
+        "revenue_pct": 33.43
+      },
+      {
+        "customer_pct": 1.41,
+        "revenue_pct": 35.26
+      },
+      {
+        "customer_pct": 1.64,
+        "revenue_pct": 36.8
+      },
+      {
+        "customer_pct": 1.87,
+        "revenue_pct": 38.2
+      },
+      {
+        "customer_pct": 2.1,
+        "revenue_pct": 39.46
+      },
+      {
+        "customer_pct": 2.33,
+        "revenue_pct": 40.65
+      },
+      {
+        "customer_pct": 2.56,
+        "revenue_pct": 41.76
+      },
+      {
+        "customer_pct": 2.79,
+        "revenue_pct": 42.79
+      },
+      {
+        "customer_pct": 3.02,
+        "revenue_pct": 43.74
+      },
+      {
+        "customer_pct": 3.25,
+        "revenue_pct": 44.64
+      },
+      {
+        "customer_pct": 3.48,
+        "revenue_pct": 45.5
+      },
+      {
+        "customer_pct": 3.71,
+        "revenue_pct": 46.31
+      },
+      {
+        "customer_pct": 3.94,
+        "revenue_pct": 47.09
+      },
+      {
+        "customer_pct": 4.17,
+        "revenue_pct": 47.85
+      },
+      {
+        "customer_pct": 4.4,
+        "revenue_pct": 48.59
+      },
+      {
+        "customer_pct": 4.63,
+        "revenue_pct": 49.3
+      },
+      {
+        "customer_pct": 4.86,
+        "revenue_pct": 49.98
+      },
+      {
+        "customer_pct": 5.09,
+        "revenue_pct": 50.64
+      },
+      {
+        "customer_pct": 5.33,
+        "revenue_pct": 51.27
+      },
+      {
+        "customer_pct": 5.56,
+        "revenue_pct": 51.9
+      },
+      {
+        "customer_pct": 5.79,
+        "revenue_pct": 52.5
+      },
+      {
+        "customer_pct": 6.02,
+        "revenue_pct": 53.09
+      },
+      {
+        "customer_pct": 6.25,
+        "revenue_pct": 53.66
+      },
+      {
+        "customer_pct": 6.48,
+        "revenue_pct": 54.22
+      },
+      {
+        "customer_pct": 6.71,
+        "revenue_pct": 54.76
+      },
+      {
+        "customer_pct": 6.94,
+        "revenue_pct": 55.29
+      },
+      {
+        "customer_pct": 7.17,
+        "revenue_pct": 55.81
+      },
+      {
+        "customer_pct": 7.4,
+        "revenue_pct": 56.31
+      },
+      {
+        "customer_pct": 7.63,
+        "revenue_pct": 56.8
+      },
+      {
+        "customer_pct": 7.86,
+        "revenue_pct": 57.29
+      },
+      {
+        "customer_pct": 8.09,
+        "revenue_pct": 57.76
+      },
+      {
+        "customer_pct": 8.32,
+        "revenue_pct": 58.22
+      },
+      {
+        "customer_pct": 8.55,
+        "revenue_pct": 58.67
+      },
+      {
+        "customer_pct": 8.78,
+        "revenue_pct": 59.12
+      },
+      {
+        "customer_pct": 9.01,
+        "revenue_pct": 59.56
+      },
+      {
+        "customer_pct": 9.24,
+        "revenue_pct": 59.99
+      },
+      {
+        "customer_pct": 9.47,
+        "revenue_pct": 60.42
+      },
+      {
+        "customer_pct": 9.7,
+        "revenue_pct": 60.84
+      },
+      {
+        "customer_pct": 9.94,
+        "revenue_pct": 61.25
+      },
+      {
+        "customer_pct": 10.17,
+        "revenue_pct": 61.66
+      },
+      {
+        "customer_pct": 10.4,
+        "revenue_pct": 62.07
+      },
+      {
+        "customer_pct": 10.63,
+        "revenue_pct": 62.46
+      },
+      {
+        "customer_pct": 10.86,
+        "revenue_pct": 62.86
+      },
+      {
+        "customer_pct": 11.09,
+        "revenue_pct": 63.24
+      },
+      {
+        "customer_pct": 11.32,
+        "revenue_pct": 63.62
+      },
+      {
+        "customer_pct": 11.55,
+        "revenue_pct": 63.99
+      },
+      {
+        "customer_pct": 11.78,
+        "revenue_pct": 64.35
+      },
+      {
+        "customer_pct": 12.01,
+        "revenue_pct": 64.71
+      },
+      {
+        "customer_pct": 12.24,
+        "revenue_pct": 65.06
+      },
+      {
+        "customer_pct": 12.47,
+        "revenue_pct": 65.41
+      },
+      {
+        "customer_pct": 12.7,
+        "revenue_pct": 65.75
+      },
+      {
+        "customer_pct": 12.93,
+        "revenue_pct": 66.09
+      },
+      {
+        "customer_pct": 13.16,
+        "revenue_pct": 66.42
+      },
+      {
+        "customer_pct": 13.39,
+        "revenue_pct": 66.75
+      },
+      {
+        "customer_pct": 13.62,
+        "revenue_pct": 67.07
+      },
+      {
+        "customer_pct": 13.85,
+        "revenue_pct": 67.39
+      },
+      {
+        "customer_pct": 14.08,
+        "revenue_pct": 67.7
+      },
+      {
+        "customer_pct": 14.32,
+        "revenue_pct": 68.01
+      },
+      {
+        "customer_pct": 14.55,
+        "revenue_pct": 68.32
+      },
+      {
+        "customer_pct": 14.78,
+        "revenue_pct": 68.62
+      },
+      {
+        "customer_pct": 15.01,
+        "revenue_pct": 68.92
+      },
+      {
+        "customer_pct": 15.24,
+        "revenue_pct": 69.22
+      },
+      {
+        "customer_pct": 15.47,
+        "revenue_pct": 69.51
+      },
+      {
+        "customer_pct": 15.7,
+        "revenue_pct": 69.8
+      },
+      {
+        "customer_pct": 15.93,
+        "revenue_pct": 70.09
+      },
+      {
+        "customer_pct": 16.16,
+        "revenue_pct": 70.37
+      },
+      {
+        "customer_pct": 16.39,
+        "revenue_pct": 70.65
+      },
+      {
+        "customer_pct": 16.62,
+        "revenue_pct": 70.93
+      },
+      {
+        "customer_pct": 16.85,
+        "revenue_pct": 71.2
+      },
+      {
+        "customer_pct": 17.08,
+        "revenue_pct": 71.47
+      },
+      {
+        "customer_pct": 17.31,
+        "revenue_pct": 71.73
+      },
+      {
+        "customer_pct": 17.54,
+        "revenue_pct": 72.0
+      },
+      {
+        "customer_pct": 17.77,
+        "revenue_pct": 72.25
+      },
+      {
+        "customer_pct": 18.0,
+        "revenue_pct": 72.51
+      },
+      {
+        "customer_pct": 18.23,
+        "revenue_pct": 72.76
+      },
+      {
+        "customer_pct": 18.46,
+        "revenue_pct": 73.01
+      },
+      {
+        "customer_pct": 18.7,
+        "revenue_pct": 73.26
+      },
+      {
+        "customer_pct": 18.93,
+        "revenue_pct": 73.51
+      },
+      {
+        "customer_pct": 19.16,
+        "revenue_pct": 73.75
+      },
+      {
+        "customer_pct": 19.39,
+        "revenue_pct": 73.99
+      },
+      {
+        "customer_pct": 19.62,
+        "revenue_pct": 74.22
+      },
+      {
+        "customer_pct": 19.85,
+        "revenue_pct": 74.45
+      },
+      {
+        "customer_pct": 20.08,
+        "revenue_pct": 74.69
+      },
+      {
+        "customer_pct": 20.31,
+        "revenue_pct": 74.92
+      },
+      {
+        "customer_pct": 20.54,
+        "revenue_pct": 75.14
+      },
+      {
+        "customer_pct": 20.77,
+        "revenue_pct": 75.37
+      },
+      {
+        "customer_pct": 21.0,
+        "revenue_pct": 75.59
+      },
+      {
+        "customer_pct": 21.23,
+        "revenue_pct": 75.81
+      },
+      {
+        "customer_pct": 21.46,
+        "revenue_pct": 76.03
+      },
+      {
+        "customer_pct": 21.69,
+        "revenue_pct": 76.25
+      },
+      {
+        "customer_pct": 21.92,
+        "revenue_pct": 76.46
+      },
+      {
+        "customer_pct": 22.15,
+        "revenue_pct": 76.67
+      },
+      {
+        "customer_pct": 22.38,
+        "revenue_pct": 76.88
+      },
+      {
+        "customer_pct": 22.61,
+        "revenue_pct": 77.08
+      },
+      {
+        "customer_pct": 22.84,
+        "revenue_pct": 77.29
+      },
+      {
+        "customer_pct": 23.08,
+        "revenue_pct": 77.49
+      },
+      {
+        "customer_pct": 23.31,
+        "revenue_pct": 77.69
+      },
+      {
+        "customer_pct": 23.54,
+        "revenue_pct": 77.89
+      },
+      {
+        "customer_pct": 23.77,
+        "revenue_pct": 78.09
+      },
+      {
+        "customer_pct": 24.0,
+        "revenue_pct": 78.29
+      },
+      {
+        "customer_pct": 24.23,
+        "revenue_pct": 78.48
+      },
+      {
+        "customer_pct": 24.46,
+        "revenue_pct": 78.68
+      },
+      {
+        "customer_pct": 24.69,
+        "revenue_pct": 78.87
+      },
+      {
+        "customer_pct": 24.92,
+        "revenue_pct": 79.05
+      },
+      {
+        "customer_pct": 25.15,
+        "revenue_pct": 79.24
+      },
+      {
+        "customer_pct": 25.38,
+        "revenue_pct": 79.43
+      },
+      {
+        "customer_pct": 25.61,
+        "revenue_pct": 79.61
+      },
+      {
+        "customer_pct": 25.84,
+        "revenue_pct": 79.79
+      },
+      {
+        "customer_pct": 26.07,
+        "revenue_pct": 79.97
+      },
+      {
+        "customer_pct": 26.3,
+        "revenue_pct": 80.15
+      },
+      {
+        "customer_pct": 26.53,
+        "revenue_pct": 80.32
+      },
+      {
+        "customer_pct": 26.76,
+        "revenue_pct": 80.5
+      },
+      {
+        "customer_pct": 26.99,
+        "revenue_pct": 80.67
+      },
+      {
+        "customer_pct": 27.22,
+        "revenue_pct": 80.84
+      },
+      {
+        "customer_pct": 27.46,
+        "revenue_pct": 81.01
+      },
+      {
+        "customer_pct": 27.69,
+        "revenue_pct": 81.18
+      },
+      {
+        "customer_pct": 27.92,
+        "revenue_pct": 81.35
+      },
+      {
+        "customer_pct": 28.15,
+        "revenue_pct": 81.51
+      },
+      {
+        "customer_pct": 28.38,
+        "revenue_pct": 81.68
+      },
+      {
+        "customer_pct": 28.61,
+        "revenue_pct": 81.84
+      },
+      {
+        "customer_pct": 28.84,
+        "revenue_pct": 82.0
+      },
+      {
+        "customer_pct": 29.07,
+        "revenue_pct": 82.16
+      },
+      {
+        "customer_pct": 29.3,
+        "revenue_pct": 82.31
+      },
+      {
+        "customer_pct": 29.53,
+        "revenue_pct": 82.47
+      },
+      {
+        "customer_pct": 29.76,
+        "revenue_pct": 82.62
+      },
+      {
+        "customer_pct": 29.99,
+        "revenue_pct": 82.78
+      },
+      {
+        "customer_pct": 30.22,
+        "revenue_pct": 82.93
+      },
+      {
+        "customer_pct": 30.45,
+        "revenue_pct": 83.08
+      },
+      {
+        "customer_pct": 30.68,
+        "revenue_pct": 83.23
+      },
+      {
+        "customer_pct": 30.91,
+        "revenue_pct": 83.38
+      },
+      {
+        "customer_pct": 31.14,
+        "revenue_pct": 83.52
+      },
+      {
+        "customer_pct": 31.37,
+        "revenue_pct": 83.67
+      },
+      {
+        "customer_pct": 31.6,
+        "revenue_pct": 83.81
+      },
+      {
+        "customer_pct": 31.83,
+        "revenue_pct": 83.96
+      },
+      {
+        "customer_pct": 32.07,
+        "revenue_pct": 84.1
+      },
+      {
+        "customer_pct": 32.3,
+        "revenue_pct": 84.24
+      },
+      {
+        "customer_pct": 32.53,
+        "revenue_pct": 84.38
+      },
+      {
+        "customer_pct": 32.76,
+        "revenue_pct": 84.52
+      },
+      {
+        "customer_pct": 32.99,
+        "revenue_pct": 84.65
+      },
+      {
+        "customer_pct": 33.22,
+        "revenue_pct": 84.79
+      },
+      {
+        "customer_pct": 33.45,
+        "revenue_pct": 84.92
+      },
+      {
+        "customer_pct": 33.68,
+        "revenue_pct": 85.06
+      },
+      {
+        "customer_pct": 33.91,
+        "revenue_pct": 85.19
+      },
+      {
+        "customer_pct": 34.14,
+        "revenue_pct": 85.32
+      },
+      {
+        "customer_pct": 34.37,
+        "revenue_pct": 85.45
+      },
+      {
+        "customer_pct": 34.6,
+        "revenue_pct": 85.58
+      },
+      {
+        "customer_pct": 34.83,
+        "revenue_pct": 85.7
+      },
+      {
+        "customer_pct": 35.06,
+        "revenue_pct": 85.83
+      },
+      {
+        "customer_pct": 35.29,
+        "revenue_pct": 85.95
+      },
+      {
+        "customer_pct": 35.52,
+        "revenue_pct": 86.08
+      },
+      {
+        "customer_pct": 35.75,
+        "revenue_pct": 86.2
+      },
+      {
+        "customer_pct": 35.98,
+        "revenue_pct": 86.32
+      },
+      {
+        "customer_pct": 36.21,
+        "revenue_pct": 86.44
+      },
+      {
+        "customer_pct": 36.45,
+        "revenue_pct": 86.56
+      },
+      {
+        "customer_pct": 36.68,
+        "revenue_pct": 86.68
+      },
+      {
+        "customer_pct": 36.91,
+        "revenue_pct": 86.8
+      },
+      {
+        "customer_pct": 37.14,
+        "revenue_pct": 86.92
+      },
+      {
+        "customer_pct": 37.37,
+        "revenue_pct": 87.03
+      },
+      {
+        "customer_pct": 37.6,
+        "revenue_pct": 87.15
+      },
+      {
+        "customer_pct": 37.83,
+        "revenue_pct": 87.26
+      },
+      {
+        "customer_pct": 38.06,
+        "revenue_pct": 87.38
+      },
+      {
+        "customer_pct": 38.29,
+        "revenue_pct": 87.49
+      },
+      {
+        "customer_pct": 38.52,
+        "revenue_pct": 87.6
+      },
+      {
+        "customer_pct": 38.75,
+        "revenue_pct": 87.71
+      },
+      {
+        "customer_pct": 38.98,
+        "revenue_pct": 87.82
+      },
+      {
+        "customer_pct": 39.21,
+        "revenue_pct": 87.93
+      },
+      {
+        "customer_pct": 39.44,
+        "revenue_pct": 88.04
+      },
+      {
+        "customer_pct": 39.67,
+        "revenue_pct": 88.15
+      },
+      {
+        "customer_pct": 39.9,
+        "revenue_pct": 88.26
+      },
+      {
+        "customer_pct": 40.13,
+        "revenue_pct": 88.36
+      },
+      {
+        "customer_pct": 40.36,
+        "revenue_pct": 88.47
+      },
+      {
+        "customer_pct": 40.59,
+        "revenue_pct": 88.57
+      },
+      {
+        "customer_pct": 40.83,
+        "revenue_pct": 88.67
+      },
+      {
+        "customer_pct": 41.06,
+        "revenue_pct": 88.78
+      },
+      {
+        "customer_pct": 41.29,
+        "revenue_pct": 88.88
+      },
+      {
+        "customer_pct": 41.52,
+        "revenue_pct": 88.98
+      },
+      {
+        "customer_pct": 41.75,
+        "revenue_pct": 89.08
+      },
+      {
+        "customer_pct": 41.98,
+        "revenue_pct": 89.18
+      },
+      {
+        "customer_pct": 42.21,
+        "revenue_pct": 89.28
+      },
+      {
+        "customer_pct": 42.44,
+        "revenue_pct": 89.37
+      },
+      {
+        "customer_pct": 42.67,
+        "revenue_pct": 89.47
+      },
+      {
+        "customer_pct": 42.9,
+        "revenue_pct": 89.56
+      },
+      {
+        "customer_pct": 43.13,
+        "revenue_pct": 89.66
+      },
+      {
+        "customer_pct": 43.36,
+        "revenue_pct": 89.75
+      },
+      {
+        "customer_pct": 43.59,
+        "revenue_pct": 89.85
+      },
+      {
+        "customer_pct": 43.82,
+        "revenue_pct": 89.94
+      },
+      {
+        "customer_pct": 44.05,
+        "revenue_pct": 90.03
+      },
+      {
+        "customer_pct": 44.28,
+        "revenue_pct": 90.12
+      },
+      {
+        "customer_pct": 44.51,
+        "revenue_pct": 90.21
+      },
+      {
+        "customer_pct": 44.74,
+        "revenue_pct": 90.3
+      },
+      {
+        "customer_pct": 44.97,
+        "revenue_pct": 90.39
+      },
+      {
+        "customer_pct": 45.21,
+        "revenue_pct": 90.48
+      },
+      {
+        "customer_pct": 45.44,
+        "revenue_pct": 90.56
+      },
+      {
+        "customer_pct": 45.67,
+        "revenue_pct": 90.65
+      },
+      {
+        "customer_pct": 45.9,
+        "revenue_pct": 90.74
+      },
+      {
+        "customer_pct": 46.13,
+        "revenue_pct": 90.82
+      },
+      {
+        "customer_pct": 46.36,
+        "revenue_pct": 90.91
+      },
+      {
+        "customer_pct": 46.59,
+        "revenue_pct": 90.99
+      },
+      {
+        "customer_pct": 46.82,
+        "revenue_pct": 91.08
+      },
+      {
+        "customer_pct": 47.05,
+        "revenue_pct": 91.16
+      },
+      {
+        "customer_pct": 47.28,
+        "revenue_pct": 91.24
+      },
+      {
+        "customer_pct": 47.51,
+        "revenue_pct": 91.32
+      },
+      {
+        "customer_pct": 47.74,
+        "revenue_pct": 91.4
+      },
+      {
+        "customer_pct": 47.97,
+        "revenue_pct": 91.48
+      },
+      {
+        "customer_pct": 48.2,
+        "revenue_pct": 91.56
+      },
+      {
+        "customer_pct": 48.43,
+        "revenue_pct": 91.64
+      },
+      {
+        "customer_pct": 48.66,
+        "revenue_pct": 91.72
+      },
+      {
+        "customer_pct": 48.89,
+        "revenue_pct": 91.8
+      },
+      {
+        "customer_pct": 49.12,
+        "revenue_pct": 91.88
+      },
+      {
+        "customer_pct": 49.35,
+        "revenue_pct": 91.95
+      },
+      {
+        "customer_pct": 49.59,
+        "revenue_pct": 92.03
+      },
+      {
+        "customer_pct": 49.82,
+        "revenue_pct": 92.11
+      },
+      {
+        "customer_pct": 50.05,
+        "revenue_pct": 92.18
+      },
+      {
+        "customer_pct": 50.28,
+        "revenue_pct": 92.26
+      },
+      {
+        "customer_pct": 50.51,
+        "revenue_pct": 92.33
+      },
+      {
+        "customer_pct": 50.74,
+        "revenue_pct": 92.41
+      },
+      {
+        "customer_pct": 50.97,
+        "revenue_pct": 92.48
+      },
+      {
+        "customer_pct": 51.2,
+        "revenue_pct": 92.55
+      },
+      {
+        "customer_pct": 51.43,
+        "revenue_pct": 92.63
+      },
+      {
+        "customer_pct": 51.66,
+        "revenue_pct": 92.7
+      },
+      {
+        "customer_pct": 51.89,
+        "revenue_pct": 92.77
+      },
+      {
+        "customer_pct": 52.12,
+        "revenue_pct": 92.84
+      },
+      {
+        "customer_pct": 52.35,
+        "revenue_pct": 92.91
+      },
+      {
+        "customer_pct": 52.58,
+        "revenue_pct": 92.98
+      },
+      {
+        "customer_pct": 52.81,
+        "revenue_pct": 93.05
+      },
+      {
+        "customer_pct": 53.04,
+        "revenue_pct": 93.12
+      },
+      {
+        "customer_pct": 53.27,
+        "revenue_pct": 93.19
+      },
+      {
+        "customer_pct": 53.5,
+        "revenue_pct": 93.26
+      },
+      {
+        "customer_pct": 53.73,
+        "revenue_pct": 93.33
+      },
+      {
+        "customer_pct": 53.96,
+        "revenue_pct": 93.4
+      },
+      {
+        "customer_pct": 54.2,
+        "revenue_pct": 93.47
+      },
+      {
+        "customer_pct": 54.43,
+        "revenue_pct": 93.53
+      },
+      {
+        "customer_pct": 54.66,
+        "revenue_pct": 93.6
+      },
+      {
+        "customer_pct": 54.89,
+        "revenue_pct": 93.67
+      },
+      {
+        "customer_pct": 55.12,
+        "revenue_pct": 93.73
+      },
+      {
+        "customer_pct": 55.35,
+        "revenue_pct": 93.8
+      },
+      {
+        "customer_pct": 55.58,
+        "revenue_pct": 93.86
+      },
+      {
+        "customer_pct": 55.81,
+        "revenue_pct": 93.93
+      },
+      {
+        "customer_pct": 56.04,
+        "revenue_pct": 93.99
+      },
+      {
+        "customer_pct": 56.27,
+        "revenue_pct": 94.05
+      },
+      {
+        "customer_pct": 56.5,
+        "revenue_pct": 94.12
+      },
+      {
+        "customer_pct": 56.73,
+        "revenue_pct": 94.18
+      },
+      {
+        "customer_pct": 56.96,
+        "revenue_pct": 94.24
+      },
+      {
+        "customer_pct": 57.19,
+        "revenue_pct": 94.3
+      },
+      {
+        "customer_pct": 57.42,
+        "revenue_pct": 94.36
+      },
+      {
+        "customer_pct": 57.65,
+        "revenue_pct": 94.42
+      },
+      {
+        "customer_pct": 57.88,
+        "revenue_pct": 94.48
+      },
+      {
+        "customer_pct": 58.11,
+        "revenue_pct": 94.54
+      },
+      {
+        "customer_pct": 58.34,
+        "revenue_pct": 94.6
+      },
+      {
+        "customer_pct": 58.58,
+        "revenue_pct": 94.66
+      },
+      {
+        "customer_pct": 58.81,
+        "revenue_pct": 94.71
+      },
+      {
+        "customer_pct": 59.04,
+        "revenue_pct": 94.77
+      },
+      {
+        "customer_pct": 59.27,
+        "revenue_pct": 94.83
+      },
+      {
+        "customer_pct": 59.5,
+        "revenue_pct": 94.88
+      },
+      {
+        "customer_pct": 59.73,
+        "revenue_pct": 94.94
+      },
+      {
+        "customer_pct": 59.96,
+        "revenue_pct": 94.99
+      },
+      {
+        "customer_pct": 60.19,
+        "revenue_pct": 95.05
+      },
+      {
+        "customer_pct": 60.42,
+        "revenue_pct": 95.1
+      },
+      {
+        "customer_pct": 60.65,
+        "revenue_pct": 95.16
+      },
+      {
+        "customer_pct": 60.88,
+        "revenue_pct": 95.21
+      },
+      {
+        "customer_pct": 61.11,
+        "revenue_pct": 95.26
+      },
+      {
+        "customer_pct": 61.34,
+        "revenue_pct": 95.32
+      },
+      {
+        "customer_pct": 61.57,
+        "revenue_pct": 95.37
+      },
+      {
+        "customer_pct": 61.8,
+        "revenue_pct": 95.42
+      },
+      {
+        "customer_pct": 62.03,
+        "revenue_pct": 95.47
+      },
+      {
+        "customer_pct": 62.26,
+        "revenue_pct": 95.52
+      },
+      {
+        "customer_pct": 62.49,
+        "revenue_pct": 95.57
+      },
+      {
+        "customer_pct": 62.72,
+        "revenue_pct": 95.62
+      },
+      {
+        "customer_pct": 62.96,
+        "revenue_pct": 95.67
+      },
+      {
+        "customer_pct": 63.19,
+        "revenue_pct": 95.72
+      },
+      {
+        "customer_pct": 63.42,
+        "revenue_pct": 95.77
+      },
+      {
+        "customer_pct": 63.65,
+        "revenue_pct": 95.82
+      },
+      {
+        "customer_pct": 63.88,
+        "revenue_pct": 95.87
+      },
+      {
+        "customer_pct": 64.11,
+        "revenue_pct": 95.92
+      },
+      {
+        "customer_pct": 64.34,
+        "revenue_pct": 95.96
+      },
+      {
+        "customer_pct": 64.57,
+        "revenue_pct": 96.01
+      },
+      {
+        "customer_pct": 64.8,
+        "revenue_pct": 96.06
+      },
+      {
+        "customer_pct": 65.03,
+        "revenue_pct": 96.1
+      },
+      {
+        "customer_pct": 65.26,
+        "revenue_pct": 96.15
+      },
+      {
+        "customer_pct": 65.49,
+        "revenue_pct": 96.19
+      },
+      {
+        "customer_pct": 65.72,
+        "revenue_pct": 96.24
+      },
+      {
+        "customer_pct": 65.95,
+        "revenue_pct": 96.28
+      },
+      {
+        "customer_pct": 66.18,
+        "revenue_pct": 96.33
+      },
+      {
+        "customer_pct": 66.41,
+        "revenue_pct": 96.37
+      },
+      {
+        "customer_pct": 66.64,
+        "revenue_pct": 96.42
+      },
+      {
+        "customer_pct": 66.87,
+        "revenue_pct": 96.46
+      },
+      {
+        "customer_pct": 67.1,
+        "revenue_pct": 96.5
+      },
+      {
+        "customer_pct": 67.34,
+        "revenue_pct": 96.55
+      },
+      {
+        "customer_pct": 67.57,
+        "revenue_pct": 96.59
+      },
+      {
+        "customer_pct": 67.8,
+        "revenue_pct": 96.63
+      },
+      {
+        "customer_pct": 68.03,
+        "revenue_pct": 96.67
+      },
+      {
+        "customer_pct": 68.26,
+        "revenue_pct": 96.72
+      },
+      {
+        "customer_pct": 68.49,
+        "revenue_pct": 96.76
+      },
+      {
+        "customer_pct": 68.72,
+        "revenue_pct": 96.8
+      },
+      {
+        "customer_pct": 68.95,
+        "revenue_pct": 96.84
+      },
+      {
+        "customer_pct": 69.18,
+        "revenue_pct": 96.88
+      },
+      {
+        "customer_pct": 69.41,
+        "revenue_pct": 96.92
+      },
+      {
+        "customer_pct": 69.64,
+        "revenue_pct": 96.96
+      },
+      {
+        "customer_pct": 69.87,
+        "revenue_pct": 97.0
+      },
+      {
+        "customer_pct": 70.1,
+        "revenue_pct": 97.04
+      },
+      {
+        "customer_pct": 70.33,
+        "revenue_pct": 97.08
+      },
+      {
+        "customer_pct": 70.56,
+        "revenue_pct": 97.12
+      },
+      {
+        "customer_pct": 70.79,
+        "revenue_pct": 97.16
+      },
+      {
+        "customer_pct": 71.02,
+        "revenue_pct": 97.2
+      },
+      {
+        "customer_pct": 71.25,
+        "revenue_pct": 97.23
+      },
+      {
+        "customer_pct": 71.48,
+        "revenue_pct": 97.27
+      },
+      {
+        "customer_pct": 71.72,
+        "revenue_pct": 97.31
+      },
+      {
+        "customer_pct": 71.95,
+        "revenue_pct": 97.35
+      },
+      {
+        "customer_pct": 72.18,
+        "revenue_pct": 97.38
+      },
+      {
+        "customer_pct": 72.41,
+        "revenue_pct": 97.42
+      },
+      {
+        "customer_pct": 72.64,
+        "revenue_pct": 97.46
+      },
+      {
+        "customer_pct": 72.87,
+        "revenue_pct": 97.49
+      },
+      {
+        "customer_pct": 73.1,
+        "revenue_pct": 97.53
+      },
+      {
+        "customer_pct": 73.33,
+        "revenue_pct": 97.57
+      },
+      {
+        "customer_pct": 73.56,
+        "revenue_pct": 97.6
+      },
+      {
+        "customer_pct": 73.79,
+        "revenue_pct": 97.64
+      },
+      {
+        "customer_pct": 74.02,
+        "revenue_pct": 97.67
+      },
+      {
+        "customer_pct": 74.25,
+        "revenue_pct": 97.71
+      },
+      {
+        "customer_pct": 74.48,
+        "revenue_pct": 97.74
+      },
+      {
+        "customer_pct": 74.71,
+        "revenue_pct": 97.78
+      },
+      {
+        "customer_pct": 74.94,
+        "revenue_pct": 97.81
+      },
+      {
+        "customer_pct": 75.17,
+        "revenue_pct": 97.85
+      },
+      {
+        "customer_pct": 75.4,
+        "revenue_pct": 97.88
+      },
+      {
+        "customer_pct": 75.63,
+        "revenue_pct": 97.91
+      },
+      {
+        "customer_pct": 75.86,
+        "revenue_pct": 97.95
+      },
+      {
+        "customer_pct": 76.09,
+        "revenue_pct": 97.98
+      },
+      {
+        "customer_pct": 76.33,
+        "revenue_pct": 98.02
+      },
+      {
+        "customer_pct": 76.56,
+        "revenue_pct": 98.05
+      },
+      {
+        "customer_pct": 76.79,
+        "revenue_pct": 98.08
+      },
+      {
+        "customer_pct": 77.02,
+        "revenue_pct": 98.11
+      },
+      {
+        "customer_pct": 77.25,
+        "revenue_pct": 98.15
+      },
+      {
+        "customer_pct": 77.48,
+        "revenue_pct": 98.18
+      },
+      {
+        "customer_pct": 77.71,
+        "revenue_pct": 98.21
+      },
+      {
+        "customer_pct": 77.94,
+        "revenue_pct": 98.24
+      },
+      {
+        "customer_pct": 78.17,
+        "revenue_pct": 98.27
+      },
+      {
+        "customer_pct": 78.4,
+        "revenue_pct": 98.3
+      },
+      {
+        "customer_pct": 78.63,
+        "revenue_pct": 98.33
+      },
+      {
+        "customer_pct": 78.86,
+        "revenue_pct": 98.36
+      },
+      {
+        "customer_pct": 79.09,
+        "revenue_pct": 98.39
+      },
+      {
+        "customer_pct": 79.32,
+        "revenue_pct": 98.42
+      },
+      {
+        "customer_pct": 79.55,
+        "revenue_pct": 98.45
+      },
+      {
+        "customer_pct": 79.78,
+        "revenue_pct": 98.48
+      },
+      {
+        "customer_pct": 80.01,
+        "revenue_pct": 98.51
+      },
+      {
+        "customer_pct": 80.24,
+        "revenue_pct": 98.53
+      },
+      {
+        "customer_pct": 80.47,
+        "revenue_pct": 98.56
+      },
+      {
+        "customer_pct": 80.71,
+        "revenue_pct": 98.59
+      },
+      {
+        "customer_pct": 80.94,
+        "revenue_pct": 98.62
+      },
+      {
+        "customer_pct": 81.17,
+        "revenue_pct": 98.64
+      },
+      {
+        "customer_pct": 81.4,
+        "revenue_pct": 98.67
+      },
+      {
+        "customer_pct": 81.63,
+        "revenue_pct": 98.7
+      },
+      {
+        "customer_pct": 81.86,
+        "revenue_pct": 98.72
+      },
+      {
+        "customer_pct": 82.09,
+        "revenue_pct": 98.75
+      },
+      {
+        "customer_pct": 82.32,
+        "revenue_pct": 98.77
+      },
+      {
+        "customer_pct": 82.55,
+        "revenue_pct": 98.8
+      },
+      {
+        "customer_pct": 82.78,
+        "revenue_pct": 98.82
+      },
+      {
+        "customer_pct": 83.01,
+        "revenue_pct": 98.85
+      },
+      {
+        "customer_pct": 83.24,
+        "revenue_pct": 98.87
+      },
+      {
+        "customer_pct": 83.47,
+        "revenue_pct": 98.9
+      },
+      {
+        "customer_pct": 83.7,
+        "revenue_pct": 98.92
+      },
+      {
+        "customer_pct": 83.93,
+        "revenue_pct": 98.94
+      },
+      {
+        "customer_pct": 84.16,
+        "revenue_pct": 98.97
+      },
+      {
+        "customer_pct": 84.39,
+        "revenue_pct": 98.99
+      },
+      {
+        "customer_pct": 84.62,
+        "revenue_pct": 99.01
+      },
+      {
+        "customer_pct": 84.85,
+        "revenue_pct": 99.04
+      },
+      {
+        "customer_pct": 85.09,
+        "revenue_pct": 99.06
+      },
+      {
+        "customer_pct": 85.32,
+        "revenue_pct": 99.08
+      },
+      {
+        "customer_pct": 85.55,
+        "revenue_pct": 99.1
+      },
+      {
+        "customer_pct": 85.78,
+        "revenue_pct": 99.13
+      },
+      {
+        "customer_pct": 86.01,
+        "revenue_pct": 99.15
+      },
+      {
+        "customer_pct": 86.24,
+        "revenue_pct": 99.17
+      },
+      {
+        "customer_pct": 86.47,
+        "revenue_pct": 99.19
+      },
+      {
+        "customer_pct": 86.7,
+        "revenue_pct": 99.21
+      },
+      {
+        "customer_pct": 86.93,
+        "revenue_pct": 99.23
+      },
+      {
+        "customer_pct": 87.16,
+        "revenue_pct": 99.25
+      },
+      {
+        "customer_pct": 87.39,
+        "revenue_pct": 99.27
+      },
+      {
+        "customer_pct": 87.62,
+        "revenue_pct": 99.29
+      },
+      {
+        "customer_pct": 87.85,
+        "revenue_pct": 99.31
+      },
+      {
+        "customer_pct": 88.08,
+        "revenue_pct": 99.33
+      },
+      {
+        "customer_pct": 88.31,
+        "revenue_pct": 99.35
+      },
+      {
+        "customer_pct": 88.54,
+        "revenue_pct": 99.37
+      },
+      {
+        "customer_pct": 88.77,
+        "revenue_pct": 99.39
+      },
+      {
+        "customer_pct": 89.0,
+        "revenue_pct": 99.41
+      },
+      {
+        "customer_pct": 89.23,
+        "revenue_pct": 99.42
+      },
+      {
+        "customer_pct": 89.47,
+        "revenue_pct": 99.44
+      },
+      {
+        "customer_pct": 89.7,
+        "revenue_pct": 99.46
+      },
+      {
+        "customer_pct": 89.93,
+        "revenue_pct": 99.48
+      },
+      {
+        "customer_pct": 90.16,
+        "revenue_pct": 99.49
+      },
+      {
+        "customer_pct": 90.39,
+        "revenue_pct": 99.51
+      },
+      {
+        "customer_pct": 90.62,
+        "revenue_pct": 99.53
+      },
+      {
+        "customer_pct": 90.85,
+        "revenue_pct": 99.55
+      },
+      {
+        "customer_pct": 91.08,
+        "revenue_pct": 99.56
+      },
+      {
+        "customer_pct": 91.31,
+        "revenue_pct": 99.58
+      },
+      {
+        "customer_pct": 91.54,
+        "revenue_pct": 99.6
+      },
+      {
+        "customer_pct": 91.77,
+        "revenue_pct": 99.61
+      },
+      {
+        "customer_pct": 92.0,
+        "revenue_pct": 99.63
+      },
+      {
+        "customer_pct": 92.23,
+        "revenue_pct": 99.64
+      },
+      {
+        "customer_pct": 92.46,
+        "revenue_pct": 99.66
+      },
+      {
+        "customer_pct": 92.69,
+        "revenue_pct": 99.67
+      },
+      {
+        "customer_pct": 92.92,
+        "revenue_pct": 99.69
+      },
+      {
+        "customer_pct": 93.15,
+        "revenue_pct": 99.7
+      },
+      {
+        "customer_pct": 93.38,
+        "revenue_pct": 99.72
+      },
+      {
+        "customer_pct": 93.61,
+        "revenue_pct": 99.73
+      },
+      {
+        "customer_pct": 93.85,
+        "revenue_pct": 99.74
+      },
+      {
+        "customer_pct": 94.08,
+        "revenue_pct": 99.76
+      },
+      {
+        "customer_pct": 94.31,
+        "revenue_pct": 99.77
+      },
+      {
+        "customer_pct": 94.54,
+        "revenue_pct": 99.78
+      },
+      {
+        "customer_pct": 94.77,
+        "revenue_pct": 99.8
+      },
+      {
+        "customer_pct": 95.0,
+        "revenue_pct": 99.81
+      },
+      {
+        "customer_pct": 95.23,
+        "revenue_pct": 99.82
+      },
+      {
+        "customer_pct": 95.46,
+        "revenue_pct": 99.83
+      },
+      {
+        "customer_pct": 95.69,
+        "revenue_pct": 99.85
+      },
+      {
+        "customer_pct": 95.92,
+        "revenue_pct": 99.86
+      },
+      {
+        "customer_pct": 96.15,
+        "revenue_pct": 99.87
+      },
+      {
+        "customer_pct": 96.38,
+        "revenue_pct": 99.88
+      },
+      {
+        "customer_pct": 96.61,
+        "revenue_pct": 99.89
+      },
+      {
+        "customer_pct": 96.84,
+        "revenue_pct": 99.9
+      },
+      {
+        "customer_pct": 97.07,
+        "revenue_pct": 99.91
+      },
+      {
+        "customer_pct": 97.3,
+        "revenue_pct": 99.92
+      },
+      {
+        "customer_pct": 97.53,
+        "revenue_pct": 99.93
+      },
+      {
+        "customer_pct": 97.76,
+        "revenue_pct": 99.94
+      },
+      {
+        "customer_pct": 97.99,
+        "revenue_pct": 99.95
+      },
+      {
+        "customer_pct": 98.22,
+        "revenue_pct": 99.96
+      },
+      {
+        "customer_pct": 98.46,
+        "revenue_pct": 99.97
+      },
+      {
+        "customer_pct": 98.69,
+        "revenue_pct": 99.97
+      },
+      {
+        "customer_pct": 98.92,
+        "revenue_pct": 99.98
+      },
+      {
+        "customer_pct": 99.15,
+        "revenue_pct": 99.99
+      },
+      {
+        "customer_pct": 99.38,
+        "revenue_pct": 99.99
+      },
+      {
+        "customer_pct": 99.61,
+        "revenue_pct": 100.0
+      },
+      {
+        "customer_pct": 99.84,
+        "revenue_pct": 100.0
+      }
+    ],
+    "top20_customers": [
+      {
+        "customer_id": 14646,
+        "revenue": 280206.02,
+        "cum_pct": 3.14
+      },
+      {
+        "customer_id": 18102,
+        "revenue": 259657.3,
+        "cum_pct": 6.06
+      },
+      {
+        "customer_id": 17450,
+        "revenue": 194550.79,
+        "cum_pct": 8.24
+      },
+      {
+        "customer_id": 16446,
+        "revenue": 168472.5,
+        "cum_pct": 10.13
+      },
+      {
+        "customer_id": 14911,
+        "revenue": 143825.06,
+        "cum_pct": 11.75
+      },
+      {
+        "customer_id": 12415,
+        "revenue": 124914.53,
+        "cum_pct": 13.15
+      },
+      {
+        "customer_id": 14156,
+        "revenue": 117379.63,
+        "cum_pct": 14.46
+      },
+      {
+        "customer_id": 17511,
+        "revenue": 91062.38,
+        "cum_pct": 15.49
+      },
+      {
+        "customer_id": 16029,
+        "revenue": 81024.84,
+        "cum_pct": 16.4
+      },
+      {
+        "customer_id": 12346,
+        "revenue": 77183.6,
+        "cum_pct": 17.26
+      },
+      {
+        "customer_id": 16684,
+        "revenue": 66653.56,
+        "cum_pct": 18.01
+      },
+      {
+        "customer_id": 14096,
+        "revenue": 65164.79,
+        "cum_pct": 18.74
+      },
+      {
+        "customer_id": 13694,
+        "revenue": 65039.62,
+        "cum_pct": 19.47
+      },
+      {
+        "customer_id": 15311,
+        "revenue": 60767.9,
+        "cum_pct": 20.15
+      },
+      {
+        "customer_id": 13089,
+        "revenue": 58825.83,
+        "cum_pct": 20.81
+      },
+      {
+        "customer_id": 17949,
+        "revenue": 58510.48,
+        "cum_pct": 21.47
+      },
+      {
+        "customer_id": 15769,
+        "revenue": 56252.72,
+        "cum_pct": 22.1
+      },
+      {
+        "customer_id": 15061,
+        "revenue": 54534.14,
+        "cum_pct": 22.71
+      },
+      {
+        "customer_id": 14298,
+        "revenue": 51527.3,
+        "cum_pct": 23.29
+      },
+      {
+        "customer_id": 14088,
+        "revenue": 50491.81,
+        "cum_pct": 23.86
+      }
+    ]
+  },
+  "product_heatmap": {
+    "categories": [
+      {
+        "category": "BAG",
+        "monthly": {
+          "2010-12": {
+            "quantity": 26470,
+            "relative": 32.9
+          },
+          "2011-01": {
+            "quantity": 36195,
+            "relative": 44.9
+          },
+          "2011-02": {
+            "quantity": 28308,
+            "relative": 35.2
+          },
+          "2011-03": {
+            "quantity": 51477,
+            "relative": 63.9
+          },
+          "2011-04": {
+            "quantity": 31493,
+            "relative": 39.1
+          },
+          "2011-05": {
+            "quantity": 61307,
+            "relative": 76.1
+          },
+          "2011-06": {
+            "quantity": 60649,
+            "relative": 75.3
+          },
+          "2011-07": {
+            "quantity": 55040,
+            "relative": 68.3
+          },
+          "2011-08": {
+            "quantity": 71893,
+            "relative": 89.3
+          },
+          "2011-09": {
+            "quantity": 66271,
+            "relative": 82.3
+          },
+          "2011-10": {
+            "quantity": 64518,
+            "relative": 80.1
+          },
+          "2011-11": {
+            "quantity": 80532,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 22987,
+            "relative": 28.5
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "CANDLE",
+        "monthly": {
+          "2010-12": {
+            "quantity": 10352,
+            "relative": 64.4
+          },
+          "2011-01": {
+            "quantity": 9146,
+            "relative": 56.9
+          },
+          "2011-02": {
+            "quantity": 8374,
+            "relative": 52.1
+          },
+          "2011-03": {
+            "quantity": 8320,
+            "relative": 51.8
+          },
+          "2011-04": {
+            "quantity": 6645,
+            "relative": 41.3
+          },
+          "2011-05": {
+            "quantity": 6978,
+            "relative": 43.4
+          },
+          "2011-06": {
+            "quantity": 7887,
+            "relative": 49.1
+          },
+          "2011-07": {
+            "quantity": 5531,
+            "relative": 34.4
+          },
+          "2011-08": {
+            "quantity": 6898,
+            "relative": 42.9
+          },
+          "2011-09": {
+            "quantity": 10641,
+            "relative": 66.2
+          },
+          "2011-10": {
+            "quantity": 16076,
+            "relative": 100.0
+          },
+          "2011-11": {
+            "quantity": 15729,
+            "relative": 97.8
+          },
+          "2011-12": {
+            "quantity": 4087,
+            "relative": 25.4
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-10"
+      },
+      {
+        "category": "CARD",
+        "monthly": {
+          "2010-12": {
+            "quantity": 13535,
+            "relative": 37.2
+          },
+          "2011-01": {
+            "quantity": 9484,
+            "relative": 26.1
+          },
+          "2011-02": {
+            "quantity": 11991,
+            "relative": 32.9
+          },
+          "2011-03": {
+            "quantity": 13698,
+            "relative": 37.6
+          },
+          "2011-04": {
+            "quantity": 14337,
+            "relative": 39.4
+          },
+          "2011-05": {
+            "quantity": 14595,
+            "relative": 40.1
+          },
+          "2011-06": {
+            "quantity": 14721,
+            "relative": 40.4
+          },
+          "2011-07": {
+            "quantity": 15445,
+            "relative": 42.4
+          },
+          "2011-08": {
+            "quantity": 13902,
+            "relative": 38.2
+          },
+          "2011-09": {
+            "quantity": 23582,
+            "relative": 64.8
+          },
+          "2011-10": {
+            "quantity": 31575,
+            "relative": 86.7
+          },
+          "2011-11": {
+            "quantity": 36406,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 9269,
+            "relative": 25.5
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "CHRISTMAS",
+        "monthly": {
+          "2010-12": {
+            "quantity": 21170,
+            "relative": 28.9
+          },
+          "2011-01": {
+            "quantity": 1651,
+            "relative": 2.3
+          },
+          "2011-02": {
+            "quantity": 1040,
+            "relative": 1.4
+          },
+          "2011-03": {
+            "quantity": 1152,
+            "relative": 1.6
+          },
+          "2011-04": {
+            "quantity": 435,
+            "relative": 0.6
+          },
+          "2011-05": {
+            "quantity": 1332,
+            "relative": 1.8
+          },
+          "2011-06": {
+            "quantity": 2368,
+            "relative": 3.2
+          },
+          "2011-07": {
+            "quantity": 7698,
+            "relative": 10.5
+          },
+          "2011-08": {
+            "quantity": 10629,
+            "relative": 14.5
+          },
+          "2011-09": {
+            "quantity": 40963,
+            "relative": 56.0
+          },
+          "2011-10": {
+            "quantity": 52945,
+            "relative": 72.3
+          },
+          "2011-11": {
+            "quantity": 73208,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 16020,
+            "relative": 21.9
+          }
+        },
+        "type": "Seasonal",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "CLOCK",
+        "monthly": {
+          "2010-12": {
+            "quantity": 2461,
+            "relative": 46.7
+          },
+          "2011-01": {
+            "quantity": 1406,
+            "relative": 26.7
+          },
+          "2011-02": {
+            "quantity": 1515,
+            "relative": 28.7
+          },
+          "2011-03": {
+            "quantity": 1739,
+            "relative": 33.0
+          },
+          "2011-04": {
+            "quantity": 3169,
+            "relative": 60.1
+          },
+          "2011-05": {
+            "quantity": 1373,
+            "relative": 26.0
+          },
+          "2011-06": {
+            "quantity": 2063,
+            "relative": 39.1
+          },
+          "2011-07": {
+            "quantity": 3412,
+            "relative": 64.7
+          },
+          "2011-08": {
+            "quantity": 4750,
+            "relative": 90.1
+          },
+          "2011-09": {
+            "quantity": 4073,
+            "relative": 77.2
+          },
+          "2011-10": {
+            "quantity": 5273,
+            "relative": 100.0
+          },
+          "2011-11": {
+            "quantity": 4129,
+            "relative": 78.3
+          },
+          "2011-12": {
+            "quantity": 2332,
+            "relative": 44.2
+          }
+        },
+        "type": "Seasonal",
+        "peak_month": "2011-10"
+      },
+      {
+        "category": "FRAME",
+        "monthly": {
+          "2010-12": {
+            "quantity": 7006,
+            "relative": 71.9
+          },
+          "2011-01": {
+            "quantity": 3075,
+            "relative": 31.6
+          },
+          "2011-02": {
+            "quantity": 3896,
+            "relative": 40.0
+          },
+          "2011-03": {
+            "quantity": 4120,
+            "relative": 42.3
+          },
+          "2011-04": {
+            "quantity": 2444,
+            "relative": 25.1
+          },
+          "2011-05": {
+            "quantity": 3562,
+            "relative": 36.6
+          },
+          "2011-06": {
+            "quantity": 5081,
+            "relative": 52.1
+          },
+          "2011-07": {
+            "quantity": 4862,
+            "relative": 49.9
+          },
+          "2011-08": {
+            "quantity": 4205,
+            "relative": 43.2
+          },
+          "2011-09": {
+            "quantity": 6686,
+            "relative": 68.6
+          },
+          "2011-10": {
+            "quantity": 7145,
+            "relative": 73.3
+          },
+          "2011-11": {
+            "quantity": 9744,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 3408,
+            "relative": 35.0
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "GIFT",
+        "monthly": {
+          "2010-12": {
+            "quantity": 10928,
+            "relative": 27.1
+          },
+          "2011-01": {
+            "quantity": 14610,
+            "relative": 36.2
+          },
+          "2011-02": {
+            "quantity": 13329,
+            "relative": 33.0
+          },
+          "2011-03": {
+            "quantity": 15156,
+            "relative": 37.5
+          },
+          "2011-04": {
+            "quantity": 12430,
+            "relative": 30.8
+          },
+          "2011-05": {
+            "quantity": 14095,
+            "relative": 34.9
+          },
+          "2011-06": {
+            "quantity": 14245,
+            "relative": 35.3
+          },
+          "2011-07": {
+            "quantity": 18353,
+            "relative": 45.4
+          },
+          "2011-08": {
+            "quantity": 19693,
+            "relative": 48.8
+          },
+          "2011-09": {
+            "quantity": 29347,
+            "relative": 72.7
+          },
+          "2011-10": {
+            "quantity": 40391,
+            "relative": 100.0
+          },
+          "2011-11": {
+            "quantity": 37740,
+            "relative": 93.4
+          },
+          "2011-12": {
+            "quantity": 9924,
+            "relative": 24.6
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-10"
+      },
+      {
+        "category": "HEART",
+        "monthly": {
+          "2010-12": {
+            "quantity": 24251,
+            "relative": 45.0
+          },
+          "2011-01": {
+            "quantity": 28410,
+            "relative": 52.7
+          },
+          "2011-02": {
+            "quantity": 19100,
+            "relative": 35.4
+          },
+          "2011-03": {
+            "quantity": 20652,
+            "relative": 38.3
+          },
+          "2011-04": {
+            "quantity": 13749,
+            "relative": 25.5
+          },
+          "2011-05": {
+            "quantity": 20947,
+            "relative": 38.8
+          },
+          "2011-06": {
+            "quantity": 22244,
+            "relative": 41.2
+          },
+          "2011-07": {
+            "quantity": 25590,
+            "relative": 47.4
+          },
+          "2011-08": {
+            "quantity": 26892,
+            "relative": 49.9
+          },
+          "2011-09": {
+            "quantity": 41706,
+            "relative": 77.3
+          },
+          "2011-10": {
+            "quantity": 46985,
+            "relative": 87.1
+          },
+          "2011-11": {
+            "quantity": 53944,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 15464,
+            "relative": 28.7
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "HOLDER",
+        "monthly": {
+          "2010-12": {
+            "quantity": 25737,
+            "relative": 58.6
+          },
+          "2011-01": {
+            "quantity": 19659,
+            "relative": 44.7
+          },
+          "2011-02": {
+            "quantity": 15157,
+            "relative": 34.5
+          },
+          "2011-03": {
+            "quantity": 17550,
+            "relative": 39.9
+          },
+          "2011-04": {
+            "quantity": 20042,
+            "relative": 45.6
+          },
+          "2011-05": {
+            "quantity": 31193,
+            "relative": 71.0
+          },
+          "2011-06": {
+            "quantity": 20049,
+            "relative": 45.6
+          },
+          "2011-07": {
+            "quantity": 19689,
+            "relative": 44.8
+          },
+          "2011-08": {
+            "quantity": 21243,
+            "relative": 48.4
+          },
+          "2011-09": {
+            "quantity": 28351,
+            "relative": 64.5
+          },
+          "2011-10": {
+            "quantity": 31374,
+            "relative": 71.4
+          },
+          "2011-11": {
+            "quantity": 43934,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 15870,
+            "relative": 36.1
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "JAR",
+        "monthly": {
+          "2010-12": {
+            "quantity": 47488,
+            "relative": 43.3
+          },
+          "2011-01": {
+            "quantity": 109753,
+            "relative": 100.0
+          },
+          "2011-02": {
+            "quantity": 34104,
+            "relative": 31.1
+          },
+          "2011-03": {
+            "quantity": 40549,
+            "relative": 36.9
+          },
+          "2011-04": {
+            "quantity": 28911,
+            "relative": 26.3
+          },
+          "2011-05": {
+            "quantity": 43565,
+            "relative": 39.7
+          },
+          "2011-06": {
+            "quantity": 38238,
+            "relative": 34.8
+          },
+          "2011-07": {
+            "quantity": 42910,
+            "relative": 39.1
+          },
+          "2011-08": {
+            "quantity": 46322,
+            "relative": 42.2
+          },
+          "2011-09": {
+            "quantity": 63661,
+            "relative": 58.0
+          },
+          "2011-10": {
+            "quantity": 62796,
+            "relative": 57.2
+          },
+          "2011-11": {
+            "quantity": 79837,
+            "relative": 72.7
+          },
+          "2011-12": {
+            "quantity": 25938,
+            "relative": 23.6
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-01"
+      },
+      {
+        "category": "LIGHT",
+        "monthly": {
+          "2010-12": {
+            "quantity": 11227,
+            "relative": 33.4
+          },
+          "2011-01": {
+            "quantity": 8161,
+            "relative": 24.3
+          },
+          "2011-02": {
+            "quantity": 6584,
+            "relative": 19.6
+          },
+          "2011-03": {
+            "quantity": 7706,
+            "relative": 22.9
+          },
+          "2011-04": {
+            "quantity": 6129,
+            "relative": 18.2
+          },
+          "2011-05": {
+            "quantity": 11656,
+            "relative": 34.7
+          },
+          "2011-06": {
+            "quantity": 9955,
+            "relative": 29.6
+          },
+          "2011-07": {
+            "quantity": 8179,
+            "relative": 24.3
+          },
+          "2011-08": {
+            "quantity": 12073,
+            "relative": 35.9
+          },
+          "2011-09": {
+            "quantity": 12364,
+            "relative": 36.8
+          },
+          "2011-10": {
+            "quantity": 19840,
+            "relative": 59.0
+          },
+          "2011-11": {
+            "quantity": 33629,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 10455,
+            "relative": 31.1
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "OTHER",
+        "monthly": {
+          "2010-12": {
+            "quantity": 143340,
+            "relative": 59.3
+          },
+          "2011-01": {
+            "quantity": 125105,
+            "relative": 51.8
+          },
+          "2011-02": {
+            "quantity": 117834,
+            "relative": 48.8
+          },
+          "2011-03": {
+            "quantity": 168528,
+            "relative": 69.7
+          },
+          "2011-04": {
+            "quantity": 153386,
+            "relative": 63.5
+          },
+          "2011-05": {
+            "quantity": 162578,
+            "relative": 67.3
+          },
+          "2011-06": {
+            "quantity": 165438,
+            "relative": 68.5
+          },
+          "2011-07": {
+            "quantity": 161019,
+            "relative": 66.6
+          },
+          "2011-08": {
+            "quantity": 154817,
+            "relative": 64.1
+          },
+          "2011-09": {
+            "quantity": 208379,
+            "relative": 86.2
+          },
+          "2011-10": {
+            "quantity": 206634,
+            "relative": 85.5
+          },
+          "2011-11": {
+            "quantity": 241688,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 167336,
+            "relative": 69.2
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      },
+      {
+        "category": "SET",
+        "monthly": {
+          "2010-12": {
+            "quantity": 15274,
+            "relative": 34.7
+          },
+          "2011-01": {
+            "quantity": 21130,
+            "relative": 48.0
+          },
+          "2011-02": {
+            "quantity": 22323,
+            "relative": 50.7
+          },
+          "2011-03": {
+            "quantity": 26879,
+            "relative": 61.1
+          },
+          "2011-04": {
+            "quantity": 15645,
+            "relative": 35.6
+          },
+          "2011-05": {
+            "quantity": 22557,
+            "relative": 51.3
+          },
+          "2011-06": {
+            "quantity": 26275,
+            "relative": 59.7
+          },
+          "2011-07": {
+            "quantity": 34031,
+            "relative": 77.4
+          },
+          "2011-08": {
+            "quantity": 28453,
+            "relative": 64.7
+          },
+          "2011-09": {
+            "quantity": 34796,
+            "relative": 79.1
+          },
+          "2011-10": {
+            "quantity": 37849,
+            "relative": 86.0
+          },
+          "2011-11": {
+            "quantity": 43987,
+            "relative": 100.0
+          },
+          "2011-12": {
+            "quantity": 11158,
+            "relative": 25.4
+          }
+        },
+        "type": "Evergreen",
+        "peak_month": "2011-11"
+      }
+    ],
+    "months": [
+      "2010-12",
+      "2011-01",
+      "2011-02",
+      "2011-03",
+      "2011-04",
+      "2011-05",
+      "2011-06",
+      "2011-07",
+      "2011-08",
+      "2011-09",
+      "2011-10",
+      "2011-11",
+      "2011-12"
+    ]
+  },
+  "funnel": {
+    "stages": [
+      {
+        "stage": "Total Transaksi",
+        "value": 19960,
+        "conv_from_prev": 100.0,
+        "conv_from_top": 100.0
+      },
+      {
+        "stage": "Customer Unik",
+        "value": 4338,
+        "conv_from_prev": 21.7,
+        "conv_from_top": 21.7
+      },
+      {
+        "stage": "Repeat Customer (\u22652x)",
+        "value": 2845,
+        "conv_from_prev": 65.6,
+        "conv_from_top": 14.3
+      },
+      {
+        "stage": "Regular Customer (\u22655x)",
+        "value": 1114,
+        "conv_from_prev": 39.2,
+        "conv_from_top": 5.6
+      },
+      {
+        "stage": "Loyal Customer (\u226510x)",
+        "value": 391,
+        "conv_from_prev": 35.1,
+        "conv_from_top": 2.0
+      }
+    ]
+  },
+  "clv": {
+    "segments": [
+      {
+        "segment": "Low",
+        "count": 1085,
+        "avg_clv": 17.48,
+        "total_clv": 18963.58,
+        "avg_frequency": 3.96,
+        "avg_recency": 52.33
+      },
+      {
+        "segment": "Medium",
+        "count": 1084,
+        "avg_clv": 53.71,
+        "total_clv": 58222.14,
+        "avg_frequency": 5.67,
+        "avg_recency": 54.98
+      },
+      {
+        "segment": "High",
+        "count": 1084,
+        "avg_clv": 312.0,
+        "total_clv": 338208.06,
+        "avg_frequency": 4.93,
+        "avg_recency": 106.22
+      },
+      {
+        "segment": "Very High",
+        "count": 1085,
+        "avg_clv": 7513.19,
+        "total_clv": 8151808.03,
+        "avg_frequency": 2.53,
+        "avg_recency": 152.6
+      }
+    ],
+    "model_performance": {
+      "mae": 101.45,
+      "mape": 7.64,
+      "r2": -0.4632
+    }
+  }
+}

@@ -136,9 +136,41 @@
               <i data-lucide="cpu"></i> <span>Forecasting</span>
             </a>
           </li>
+
+          <li class="nav-group-label"><span>Advanced Analytics</span></li>
           <li>
-            <a href="#" class="nav-item" data-target="page-insights">
-              <i data-lucide="lightbulb"></i> <span>Insights &amp; Recommendations</span>
+            <a href="#" class="nav-item" data-target="page-basket">
+              <i data-lucide="shopping-bag"></i> <span>Market Basket</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-cohort">
+              <i data-lucide="calendar"></i> <span>Cohort Analysis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-churn">
+              <i data-lucide="activity"></i> <span>Churn Risk</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-pareto">
+              <i data-lucide="bar-chart-2"></i> <span>Revenue Pareto</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-product-trend">
+              <i data-lucide="layers"></i> <span>Product Trend</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-funnel">
+              <i data-lucide="filter"></i> <span>Sales Funnel</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-target="page-clv">
+              <i data-lucide="dollar-sign"></i> <span>CLV Analysis</span>
             </a>
           </li>
         </ul>
@@ -154,10 +186,16 @@
     ==================================================== -->
     <main class="main-content" id="mainContent">
       <header class="topbar">
-        <button class="topbar__toggle" id="sidebarToggleBtn" aria-label="Toggle sidebar">
-          <i data-lucide="menu"></i>
-        </button>
-        <h1 class="topbar__title" id="topbarTitle">Overview</h1>
+        <div class="topbar-left">
+          <button class="topbar__toggle" id="sidebarToggleBtn" aria-label="Toggle sidebar">
+            <i data-lucide="menu"></i>
+          </button>
+          <h1 class="topbar__title" id="topbarTitle">Overview</h1>
+        </div>
+        <a href="#" class="nav-item insights-top-btn" data-target="page-insights">
+          <i data-lucide="lightbulb"></i>
+          <span class="insights-top-text">Insights &amp; Recommendations</span>
+        </a>
       </header>
 
       <div class="content-wrapper">
@@ -553,6 +591,143 @@
           <div class="insights-grid" id="insightsGrid">
             <!-- Populated by JS (Will ensure minimum 10 cards via main.js) -->
           </div>
+        </div>
+
+        <!-- A1. MARKET BASKET ANALYSIS -->
+        <div class="page-panel" id="page-basket">
+          <div class="page-header">
+            <h2>Market Basket Analysis</h2>
+            <p>Association rules mining — top item combinations frequently purchased together.</p>
+          </div>
+          <div class="stats-row" id="basketStats"></div>
+          <div class="chart-card">
+            <h3 class="chart-title">Support vs Confidence (Bubble Size = Lift)</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartBasketScatter" aria-label="Scatter plot of association rules"></canvas>
+            </div>
+          </div>
+          <div id="tableBasket" class="table-wrap"></div>
+        </div>
+
+        <!-- A2. COHORT ANALYSIS -->
+        <div class="page-panel" id="page-cohort">
+          <div class="page-header">
+            <h2>Cohort Analysis</h2>
+            <p>Customer retention rates tracked by monthly acquisition cohort.</p>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Retention Rate Heatmap (%) — Cohort × Month Index</h3>
+            <div id="cohortHeatmap"></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Avg Retention Rate by Month Index</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartCohortLine" aria-label="Avg retention rate line chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- A3. CHURN RISK SCORING -->
+        <div class="page-panel" id="page-churn">
+          <div class="page-header">
+            <h2>Churn Risk Scoring</h2>
+            <p>Customer segmentation by churn probability based on RFM features.</p>
+          </div>
+          <div class="stats-row" id="churnStats"></div>
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Customer Count per Risk Segment</h3>
+              <div class="chart-wrap">
+                <canvas id="chartChurnCount" aria-label="Bar chart customer count by churn risk"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Revenue per Risk Segment</h3>
+              <div class="chart-wrap">
+                <canvas id="chartChurnRevenue" aria-label="Bar chart revenue by churn risk"></canvas>
+              </div>
+            </div>
+          </div>
+          <div id="tableChurn" class="table-wrap"></div>
+        </div>
+
+        <!-- A4. REVENUE PARETO -->
+        <div class="page-panel" id="page-pareto">
+          <div class="page-header">
+            <h2>Revenue Pareto Analysis</h2>
+            <p>Cumulative revenue distribution across the customer base.</p>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Pareto Curve — Cumulative % Customers vs Cumulative % Revenue</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartPareto" aria-label="Pareto curve chart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Top 20 Customers by Revenue</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartParetoTop20" aria-label="Bar chart top 20 customers by revenue"></canvas>
+            </div>
+          </div>
+          <div id="tablePareto" class="table-wrap"></div>
+        </div>
+
+        <!-- A5. PRODUCT TREND HEATMAP -->
+        <div class="page-panel" id="page-product-trend">
+          <div class="page-header">
+            <h2>Product Trend Heatmap</h2>
+            <p>Monthly quantity and relative performance heatmap per product category.</p>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Absolute Quantity per Category per Month</h3>
+            <div id="heatAbsolute"></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Relative Performance (% of Peak) per Category</h3>
+            <div id="heatRelative"></div>
+          </div>
+        </div>
+
+        <!-- A6. SALES FUNNEL -->
+        <div class="page-panel" id="page-funnel">
+          <div class="page-header">
+            <h2>Sales Funnel</h2>
+            <p>Customer progression from total transactions to loyal buyers.</p>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Customer Conversion Funnel</h3>
+            <div id="funnelContainer"></div>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Funnel Stage Comparison</h3>
+            <div class="chart-wrap chart-wrap--wide">
+              <canvas id="chartFunnelBar" aria-label="Bar chart of funnel stages"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- A7. CLV ANALYSIS -->
+        <div class="page-panel" id="page-clv">
+          <div class="page-header">
+            <h2>CLV Analysis</h2>
+            <p>Customer Lifetime Value segmentation and model performance metrics.</p>
+          </div>
+          <div id="clvMetrics"></div>
+          <div class="chart-grid chart-grid--2">
+            <div class="chart-card">
+              <h3 class="chart-title">Avg CLV per Segment (£)</h3>
+              <div class="chart-wrap">
+                <canvas id="chartClvBar" aria-label="Bar chart avg CLV per segment"></canvas>
+              </div>
+            </div>
+            <div class="chart-card">
+              <h3 class="chart-title">Customer Count per CLV Segment</h3>
+              <div class="chart-wrap">
+                <canvas id="chartClvCount" aria-label="Bar chart customer count per CLV segment"></canvas>
+              </div>
+            </div>
+          </div>
+          <div id="tableClv" class="table-wrap"></div>
         </div>
 
       </div>

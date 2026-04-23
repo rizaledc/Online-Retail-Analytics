@@ -19,6 +19,11 @@ import {
 
 import { renderForecast } from './forecast.js';
 
+import {
+  renderMarketBasket, renderCohort, renderChurnRisk,
+  renderPareto, renderProductTrend, renderSalesFunnel, renderClv,
+} from './advanced.js';
+
 /* ── LUCIDE HELPER ──────────────────────────────────────── */
 function initIcons() {
   if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -129,6 +134,43 @@ function injectSkeletons(pageId) {
       if (grid) grid.innerHTML = Array(6).fill(
         `<div class="skeleton" style="height:140px;border-radius:8px"></div>`
       ).join('');
+      break;
+    }
+    // ── Advanced Analytics Skeletons ──
+    case 'page-basket': {
+      const stats = document.getElementById('basketStats');
+      if (stats) stats.innerHTML = Array(4).fill(
+        `<div class="stat-card skeleton" style="min-height:72px;flex:1 1 150px"></div>`
+      ).join('');
+      _skeletonifyCanvas('chartBasketScatter');
+      break;
+    }
+    case 'page-cohort':
+      _skeletonifyCanvas('chartCohortLine');
+      break;
+    case 'page-churn': {
+      const stats = document.getElementById('churnStats');
+      if (stats) stats.innerHTML = Array(4).fill(
+        `<div class="stat-card skeleton" style="min-height:72px;flex:1 1 150px"></div>`
+      ).join('');
+      ['chartChurnCount', 'chartChurnRevenue'].forEach(_skeletonifyCanvas);
+      break;
+    }
+    case 'page-pareto':
+      ['chartPareto', 'chartParetoTop20'].forEach(_skeletonifyCanvas);
+      break;
+    case 'page-product-trend':
+      // Heatmaps are rendered directly without canvas wrapper skeletons
+      break;
+    case 'page-funnel':
+      _skeletonifyCanvas('chartFunnelBar');
+      break;
+    case 'page-clv': {
+      const metrics = document.getElementById('clvMetrics');
+      if (metrics) metrics.innerHTML = Array(3).fill(
+        `<div class="metric-badge skeleton" style="width:100px;height:46px;"></div>`
+      ).join('');
+      ['chartClvBar', 'chartClvCount'].forEach(_skeletonifyCanvas);
       break;
     }
   }
@@ -297,9 +339,75 @@ function renderInsights() {
     },
   ];
 
+  const advInsights = [
+    {
+      icon: 'shopping-cart',
+      title: 'Market Basket Analysis',
+      bullets: [
+        'Produk dekorasi rumah memiliki asosiasi kuat — peluang bundling & cross-selling langsung di halaman produk',
+        'Rules dengan lift tinggi bisa jadi dasar fitur "Frequently Bought Together" untuk meningkatkan average order value'
+      ]
+    },
+    {
+      icon: 'users',
+      title: 'Cohort Analysis',
+      bullets: [
+        'Retention drop drastis di bulan ke-1 (~22%) — onboarding experience perlu diperbaiki segera',
+        'Cohort Desember 2010 paling loyal (retention 35–50% hingga bulan ke-11) — jadikan blueprint strategi akuisisi',
+        'Retention stagnan di 22–27% setelah bulan pertama menandakan tidak ada program retensi aktif yang berjalan'
+      ]
+    },
+    {
+      icon: 'alert-triangle',
+      title: 'Churn Risk Scoring',
+      bullets: [
+        '1.449 customer (33.4%) masuk High Risk dengan £1M+ revenue terancam hilang — butuh win-back campaign segera',
+        'CustomerID 17850: 34 transaksi namun churn score 99.5% karena tidak transaksi 372 hari — prioritas re-engagement tertinggi',
+        'Mempertahankan Low Risk customers lebih cost-effective daripada akuisisi baru'
+      ]
+    },
+    {
+      icon: 'trending-up',
+      title: 'Revenue Pareto (80/20)',
+      bullets: [
+        'Hanya 26.1% customer menghasilkan 80% revenue — lebih ketat dari aturan 80/20 klasik, indikasi revenue concentration risk',
+        'Customer #1 (ID 14646, £280K) menyumbang 3.1% total revenue sendirian — butuh account management khusus',
+        'Diversifikasi customer base harus jadi prioritas strategis untuk mengurangi ketergantungan pada segelintir pelanggan'
+      ]
+    },
+    {
+      icon: 'grid',
+      title: 'Product Trend Heatmap',
+      bullets: [
+        'CHRISTMAS adalah satu-satunya kategori Seasonal murni — stok & kampanye harus dipersiapkan mulai September',
+        'BAG, CARD, HEART, SET adalah Evergreen — cocok untuk program subscription box atau bundling tetap',
+        'Semua kategori memuncak di November — bisnis sangat bergantung pada Q4, perlu strategi meratakan revenue sepanjang tahun'
+      ]
+    },
+    {
+      icon: 'filter',
+      title: 'Sales Funnel',
+      bullets: [
+        'Drop terbesar: Customer Unik → Repeat Customer (65.6% tidak kembali) — ini gap terbesar & peluang intervensi terbesar',
+        'Hanya 2% customer mencapai status Loyal (≥10x transaksi) — program loyalty tier bisa mendorong angka ini signifikan',
+        'Fokus pada konversi bulan pertama adalah lever pertumbuhan paling efisien'
+      ]
+    },
+    {
+      icon: 'dollar-sign',
+      title: 'CLV Analysis',
+      bullets: [
+        'Segmen Very High CLV (avg £7.513) — prioritaskan retention mereka di atas segalanya',
+        'Gap ekstrem Very High (£7.513) vs Low (£17) menunjukkan customer base sangat heterogen — butuh strategi berbeda per segmen',
+        'Model CLV saat ini masih perlu penyempurnaan — gunakan sebagai estimasi arah, bukan angka absolut'
+      ]
+    }
+  ];
+
   const grid = document.getElementById('insightsGrid');
   if (!grid) return;
-  grid.innerHTML = insights.map(ins => `
+  
+  let html = insights.map(ins => `
     <article class="insight-card">
       <div class="insight-icon" aria-hidden="true"><i data-lucide="${ins.icon}"></i></div>
       <div class="insight-body">
@@ -310,6 +418,26 @@ function renderInsights() {
       </div>
     </article>
   `).join('');
+
+  html += `
+    <div style="grid-column: 1 / -1; margin: 32px 0 16px; padding-bottom: 12px; border-bottom: 2px solid var(--clr-border);">
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-body);">Advanced Analytics Insights</h3>
+    </div>
+  `;
+
+  html += advInsights.map(ins => `
+    <article class="insight-card">
+      <div class="insight-icon" aria-hidden="true"><i data-lucide="${ins.icon}"></i></div>
+      <div class="insight-body">
+        <h3 class="insight-title">${ins.title}</h3>
+        <ul style="margin-top: 12px; padding-left: 20px; color: var(--clr-muted); font-size: 0.95rem; line-height: 1.6; list-style-type: disc;">
+          ${ins.bullets.map(b => `<li style="margin-bottom: 8px;">${b}</li>`).join('')}
+        </ul>
+      </div>
+    </article>
+  `).join('');
+
+  grid.innerHTML = html;
   initIcons();
 }
 
@@ -329,12 +457,36 @@ const PAGE_TITLES = {
   'page-anomaly':    'Anomaly Detection',
   'page-forecast':   'Forecasting',
   'page-insights':   'Insights & Recommendations',
+  'page-basket':         'Market Basket Analysis',
+  'page-cohort':         'Cohort Analysis',
+  'page-churn':          'Churn Risk Scoring',
+  'page-pareto':         'Revenue Pareto',
+  'page-product-trend':  'Product Trend Heatmap',
+  'page-funnel':         'Sales Funnel',
+  'page-clv':            'CLV Analysis',
 };
 
 // Pages already rendered (lazy render on first visit)
 const rendered = new Set();
 
+// Extended data store (loaded in parallel with main data)
+let extData = null;
+
+let currentPageId = 'page-exec-summary';
+let previousPageId = 'page-exec-summary';
+
 function switchPage(targetId, data) {
+  // If we are already on this page, do nothing
+  if (targetId === currentPageId && document.getElementById(targetId)?.classList.contains('active')) {
+    return;
+  }
+
+  // Track the last non-insights page to allow toggling back
+  if (targetId !== 'page-insights') {
+    previousPageId = targetId;
+  }
+  currentPageId = targetId;
+
   // ── 1. Hide all panels ──
   document.querySelectorAll('.page-panel').forEach(p => p.classList.remove('active'));
 
@@ -354,11 +506,7 @@ function switchPage(targetId, data) {
   // ── 5. Lazy render on first visit ──
   if (!rendered.has(targetId) && data) {
     rendered.add(targetId);
-
-    // Show skeletons first, then render
     injectSkeletons(targetId);
-
-    // Use a minimal delay so skeletons paint before heavy chart rendering
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         renderPageCharts(targetId, data);
@@ -428,6 +576,28 @@ function renderPageCharts(pageId, data) {
       break;
     case 'page-insights':
       renderInsights();
+      break;
+    // ── Advanced Analytics pages ──
+    case 'page-basket':
+      if (extData) renderMarketBasket(extData);
+      break;
+    case 'page-cohort':
+      if (extData) renderCohort(extData);
+      break;
+    case 'page-churn':
+      if (extData) renderChurnRisk(extData);
+      break;
+    case 'page-pareto':
+      if (extData) renderPareto(extData);
+      break;
+    case 'page-product-trend':
+      if (extData) renderProductTrend(extData);
+      break;
+    case 'page-funnel':
+      if (extData) renderSalesFunnel(extData);
+      break;
+    case 'page-clv':
+      if (extData) renderClv(extData);
       break;
   }
 }
@@ -745,9 +915,16 @@ function initNav(data) {
       e.preventDefault();
       const target = link.dataset.target;
       if (!target) return;
-      switchPage(target, data);
-      // Auto-close sidebar on mobile
-      if (window.innerWidth <= 768) {
+
+      if (link.classList.contains('insights-top-btn') && currentPageId === 'page-insights') {
+        // Toggle OFF: Return to previous page
+        switchPage(previousPageId, data);
+      } else {
+        switchPage(target, data);
+      }
+      
+      // Auto-close sidebar on mobile (only for sidebar links)
+      if (window.innerWidth <= 768 && !link.classList.contains('insights-top-btn')) {
         document.getElementById('sidebar')?.classList.remove('open');
         document.querySelector('.sidebar-overlay')?.classList.remove('visible');
       }
@@ -757,34 +934,40 @@ function initNav(data) {
 
 /* ================================================================
    MAIN INIT
+/* ================================================================
+   LOAD EXTENDED DATA
+================================================================ */
+async function loadExtendedData() {
+  try {
+    const res = await fetch('./dashboard_data_extended.json');
+    if (res.ok) return await res.json();
+  } catch {
+    console.warn('dashboard_data_extended.json not found — Advanced Analytics unavailable.');
+  }
+  return null;
+}
+
+/* ================================================================
+   MAIN INIT
 ================================================================ */
 async function init() {
   showOverlay();
   initSidebarToggle();
-  initIcons(); // sidebar static icons
+  initIcons();
 
-  const data = await loadData();
+  const [data, ext] = await Promise.all([loadData(), loadExtendedData()]);
+  extData = ext;
 
   if (!data) {
-    // Data fetch failed → hide overlay, show error state
     hideOverlay();
     showError();
-
-    // Wire retry button
-    retryBtn?.addEventListener('click', () => {
-      hideError();
-      init();
-    });
+    retryBtn?.addEventListener('click', () => { hideError(); init(); });
     return;
   }
 
-  // Success — hide overlay, set up dashboard
   hideOverlay();
   hideError();
-
   initNav(data);
-
-  // Boot to Executive Summary
   switchPage('page-exec-summary', data);
 }
 
